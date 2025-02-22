@@ -6,42 +6,54 @@ interface AchievementListProps {
   onToggleAchievement: (id: string) => void;
 }
 
-const TypeIcon: React.FC<{ type: AchievementType; categoryId: string }> = ({ type, categoryId }) => {
-  console.log(`Rendering icon for type: ${type}, categoryId: ${categoryId}`);
 
-  const iconMap: Record<AchievementType, Record<string, string>> = {
-    silver: {
-      "galactas-guide": '../../icons/Galacat-Silver-Achievement.webp',
-      "rivalry-rising": '../../icons/Rivalry-Silver-Achievement.webp',
-      "heroic-journey": '../../icons/Heroic-Silver-Achievement.webp',
-      "chronoversy-saga": '../../icons/Heroic-Silver-Achievement.webp',
-    },
-    gold: {
-      "galactas-guide": '../../icons/Galacat-Gold-Achievement.webp',
-      "rivalry-rising": '../../icons/Rivalry-Gold-Achievement.webp',
-      "heroic-journey": '../../icons/Heroic-Gold-Achievement.webp',
-      "chronoversy-saga": '../../icons/Heroic-Silver-Achievement.webp',
-    },
-    bronze: {
-      "galactas-guide": '../../icons/Galacat-Bronze-Achievement.webp',
-      "rivalry-rising": '../../icons/Rivalry-Bronze-Achievement.webp',
-      "heroic-journey": '../../icons/Heroic-Bronze-Achievement.webp',
-      "chronoversy-saga": '../../icons/Chronoverse-Bronze-Achievement.webp',
-    },
-  };
+import GalacatGold from "../icons/Galacat-Gold-Achievement.webp";
+import GalacatSilver from "../icons/Galacat-Silver-Achievement.webp";
+import GalacatBronze from "../icons/Galacat-Bronze-Achievement.webp";
 
-  const imageSrc = iconMap[type][categoryId] || '../../icons/default.webp';
+import RivalrySilver from "../icons/Rivalry-Silver-Achievement.webp";
+import RivalryBronze from "../icons/Rivalry-Bronze-Achievement.webp";
 
-  return <img src={imageSrc} alt={`${type}-${categoryId}`} className="w-13 h-13" />;
+
+import HeroicSilver from "../icons/Heroic-Silver-Achievement.webp";
+import HeroicBronze from "../icons/Heroic-Bronze-Achievement.webp";
+
+import ChronoversyBronze from "../icons/Chronoverse-Bronze-Achievement.webp";
+
+
+const iconMap: Record<AchievementType, Record<string, string>> = {
+  gold: {
+    "galactas-guide": GalacatGold,
+  },
+  silver: {
+    "galactas-guide": GalacatSilver,
+    "rivalry-rising": RivalrySilver,
+    "heroic-journey": HeroicSilver,
+  },
+  bronze: {
+    "galactas-guide": GalacatBronze,
+    "chronoversy-saga": ChronoversyBronze,
+    "rivalry-rising": RivalryBronze,
+    "heroic-journey": HeroicBronze,
+  },
 };
 
+
+const TypeIcon: React.FC<{ type: AchievementType; categoryId: string }> = ({ type, categoryId }) => {
+  console.log(`Rendering icon for type: ${type}, categoryId: ${categoryId}`);
+  const imageSrc = iconMap[type][categoryId] || "";
+  return imageSrc ? <img src={imageSrc} alt={`${type}-${categoryId}`} className="w-13 h-13" /> : null;
+};
 export const AchievementList: React.FC<AchievementListProps> = ({
   achievements,
   onToggleAchievement,
 }) => {
   const sortedAchievements = [...achievements].sort((a, b) => {
-    const typeOrder = { gold: 0, silver: 1, bronze: 2 };
-    return typeOrder[a.type] - typeOrder[b.type]; // Sort only by type
+    if (a.completed === b.completed) {
+      const typeOrder = { silver: 0, gold: 1, bronze: 2 };
+      return typeOrder[a.type] - typeOrder[b.type];
+    }
+    return a.completed ? 1 : -1;
   });
   
   

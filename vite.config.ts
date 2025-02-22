@@ -5,5 +5,10 @@ export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     include: ['lucide-react']
+  },
+  base: "/",
+  
+  build: {
+    minify: "esbuild", // Uses esbuild (faster than terser)
   }
 });
