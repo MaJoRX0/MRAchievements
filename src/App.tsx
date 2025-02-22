@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { CategoryList } from './components/CategoryList';
 import { AchievementList } from './components/AchievementList';
-import { AppState } from './types';
+import { AppState, SortOption } from './types';
 import { initialCategories } from './data';
-import { Download, Upload, CheckSquare, Square, Search, MessageCircle, Menu, X, Eye, EyeOff } from 'lucide-react';
+import { Download, Upload, CheckSquare, Square, Search, MessageCircle, Menu, X, Eye, EyeOff, MoveDown, ChevronDown } from 'lucide-react';
 
 function App() {
   const saved = localStorage.getItem('completedAchievements');
   const completedIds: Record<string, string[]> = saved ? JSON.parse(saved) : {};
 
-  // Load hideCompleted state from localStorage
+  // Load states from localStorage
   const savedHideCompleted = localStorage.getItem('hideCompleted');
   const initialHideCompleted = savedHideCompleted ? JSON.parse(savedHideCompleted) : false;
+  const savedSortCompleted = localStorage.getItem('sortCompleted');
+  const initialSortCompleted = savedSortCompleted ? JSON.parse(savedSortCompleted) : true;
   const savedSelectedCategory = localStorage.getItem('selectedCategory');
+  const savedSortOption = localStorage.getItem('sortOption');
+  const savedSortDirection = localStorage.getItem('sortDirection');
 
   const [state, setState] = useState<AppState>({
     categories: initialCategories.map(category => ({
@@ -25,15 +29,29 @@ function App() {
     selectedCategory: savedSelectedCategory || initialCategories[0]?.id || null
   });
 
-
-
   const [searchTerm, setSearchTerm] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hideCompleted, setHideCompleted] = useState(initialHideCompleted);
+  const [sortCompleted, setSortCompleted] = useState(initialSortCompleted);
+  const [sortOption, setSortOption] = useState<SortOption>(savedSortOption as SortOption || 'type');
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>(savedSortDirection as 'asc' | 'desc' || 'asc');
+  const [isSortMenuOpen, setIsSortMenuOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('hideCompleted', JSON.stringify(hideCompleted));
   }, [hideCompleted]);
+
+  useEffect(() => {
+    localStorage.setItem('sortCompleted', JSON.stringify(sortCompleted));
+  }, [sortCompleted]);
+
+  useEffect(() => {
+    localStorage.setItem('sortOption', sortOption);
+  }, [sortOption]);
+
+  useEffect(() => {
+    localStorage.setItem('sortDirection', sortDirection);
+  }, [sortDirection]);
 
   useEffect(() => {
     const completedAchievements = state.categories.reduce((acc, category) => {
@@ -60,7 +78,6 @@ function App() {
     setIsMobileMenuOpen(false);
   };
 
-
   const handleToggleAchievement = (achievementId: string) => {
     setState(prev => ({
       ...prev,
@@ -72,7 +89,6 @@ function App() {
       }))
     }));
   };
-  
 
   const handleToggleAll = (categoryId: string, completed: boolean) => {
     setState(prev => ({
@@ -147,14 +163,15 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       <div className="container mx-auto px-4 py-6 md:p-6">
         {/* Header Section */}
-        <div className="flex flex-col gap-4 mb-8 md:flex-row md:justify-between md:items-center">
-          <div className="flex flex-col md:flex-row md:items-center gap-2 w-full">
+        <div className="flex flex-col gap-2 md:gap-4 mb-4 md:mb-8 md:flex-row md:justify-between md:items-start">
+          <div className="flex flex-col md:flex-row md:items-start gap-2 flex-1 text-center md:text-left">
             <h1 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
               MR Achievements Tracker
             </h1>
 
-            <div className="flex items-center w-full md:w-auto">
-              <div className="relative w-full md:w-52 h-3 bg-gray-700 rounded-full overflow-hidden">
+
+            <div className="flex items-center flex-1 md:pt-3.5">
+              <div className="relative flex-1 h-3 bg-gray-700 rounded-full overflow-hidden">
                 <div
                   className="absolute h-full bg-purple-400 transition-all"
                   style={{ width: `${progressPercentage}%` }}
@@ -163,7 +180,6 @@ function App() {
               <span className="text-sm text-gray-300 ml-2">{Math.round(progressPercentage)}%</span>
             </div>
           </div>
-
 
           <div className="flex gap-2 md:gap-4">
             <button
@@ -194,26 +210,24 @@ function App() {
           {/* Mobile Category Sidebar */}
           <div className={`
             fixed inset-0 z-40 bg-gray-900/95 backdrop-blur-sm md:relative md:bg-transparent md:block md:backdrop-blur-none
-            transition-transform duration-300 ease-in-out w-full md:w-80
+            transition-transform duration-300 ease-in-out w-full md:w-80 flex justify-center
             ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
           `}>
-            <div className="h-full md:h-auto overflow-y-auto p-4 md:p-0 md:max-h-[calc(100vh-200px)]">
-              <div className="w-full">
-                <CategoryList
-                  categories={state.categories}
-                  selectedCategory={state.selectedCategory}
-                  onSelectCategory={handleSelectCategory}
-                />
-              </div>
+            <div className="h-full md:h-auto w-full overflow-y-auto p-4 md:p-0 md:max-h-[calc(100vh-200px)]">
+              <CategoryList
+                categories={state.categories}
+                selectedCategory={state.selectedCategory}
+                onSelectCategory={handleSelectCategory}
+              />
             </div>
           </div>
 
           {/* Achievement Content */}
-          <div className="flex-1 mt-4 md:mt-0">
+          <div className="flex-1 mt-1 md:mt-0">
             {selectedCategory && (
               <div className="space-y-4">
                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                  <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+                  <div className="flex flex-col gap-2 md:gap-4 md:flex-row w-full md:w-auto">
                     <input
                       type="text"
                       placeholder="Search achievements..."
@@ -221,13 +235,56 @@ function App() {
                       onChange={(e) => setSearchTerm(e.target.value)}
                       className="px-4 py-2 rounded-md bg-gray-700 text-white w-full md:w-72"
                     />
-                    <button
-                      onClick={() => setHideCompleted(!hideCompleted)}
-                      className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors"
-                    >
-                      {hideCompleted ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
-                      <span>{hideCompleted ? "Show Completed" : "Hide Completed"}</span>
-                    </button>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => setHideCompleted(!hideCompleted)}
+                        className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors"
+                      >
+                        {hideCompleted ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                        <span>{hideCompleted ? "Show Completed" : "Hide Completed"}</span>
+                      </button>
+                      <button
+                        onClick={() => setSortCompleted(!sortCompleted)}
+                        className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors"
+                        title={sortCompleted ? "Disable move completed to bottom" : "Enable move completed to bottom"}
+                      >
+                        <MoveDown className="w-4 h-4" />
+                      </button>
+                      <div className="relative flex-1 md:flex-none">
+                        <button
+                          onClick={() => setIsSortMenuOpen(!isSortMenuOpen)}
+                          className="w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors"
+                        >
+                          Sort by
+                          <ChevronDown className="w-4 h-4" />
+                        </button>
+                        {isSortMenuOpen && (
+                          <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 z-50">
+                            <div className="py-1">
+                              {['type', 'name', 'points'].map((option) => (
+                                <button
+                                  key={option}
+                                  onClick={() => {
+                                    if (sortOption === option) {
+                                      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+                                    } else {
+                                      setSortOption(option as SortOption);
+                                      setSortDirection('asc');
+                                    }
+                                    setIsSortMenuOpen(false);
+                                  }}
+                                  className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-700 ${sortOption === option ? 'text-purple-400' : 'text-gray-300'
+                                    }`}
+                                >
+                                  {option.charAt(0).toUpperCase() + option.slice(1)}
+                                  {sortOption === option && ` (${sortDirection === 'asc' ? '↑' : '↓'})`}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
                   <button
                     onClick={() => handleToggleAll(selectedCategory.id, !isAllCompleted)}
@@ -237,7 +294,13 @@ function App() {
                     <span>{isAllCompleted ? "Deselect All" : "Select All"}</span>
                   </button>
                 </div>
-                <AchievementList achievements={filteredAchievements} onToggleAchievement={handleToggleAchievement} />
+                <AchievementList
+                  achievements={filteredAchievements}
+                  onToggleAchievement={handleToggleAchievement}
+                  sortCompleted={sortCompleted}
+                  sortOption={sortOption}
+                  sortDirection={sortDirection}
+                />
               </div>
             )}
           </div>
@@ -259,7 +322,6 @@ function App() {
           </a>
         </div>
       </footer>
-
     </div>
   );
 }

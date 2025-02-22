@@ -48,24 +48,51 @@ export const CategoryList: React.FC<CategoryListProps> = ({
                 <span>Progress</span>
                 <span className="font-medium">{progress.earned}/{progress.total}</span>
               </div>
-              <div className="h-2 bg-gray-900/50 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-purple-600 to-purple-400 transition-all duration-300"
-                  style={{ width: `${progressPercentage}%` }}
-                />
-              </div>
-              <div className="relative h-1 mt-1">
-                {Array.from({ length: checkpoints }).map((_, idx) => (
+              <div className="relative">
+                <div className="h-2 bg-gray-900/50 rounded-full overflow-hidden">
                   <div
-                    key={idx}
-                    className={`absolute w-1 h-3 -top-1 transition-colors ${
-                      progress.earned >= (idx + 1) * 40
-                        ? 'bg-green-400'
-                        : 'bg-gray-600'
-                    }`}
-                    style={{ left: `${((idx + 1) * 40 * 100) / progress.total}%` }}
+                    className="h-full bg-gradient-to-r from-purple-600 to-purple-400 transition-all duration-300"
+                    style={{ width: `${progressPercentage}%` }}
                   />
-                ))}
+                </div>
+                <div className="absolute inset-0 flex items-center">
+                  {Array.from({ length: checkpoints }).map((_, idx) => {
+                    const isCompleted = progress.earned >= (idx + 1) * 40;
+                    const position = ((idx + 1) * 40 * 100) / progress.total;
+                    
+                    return (
+                      <div
+                        key={idx}
+                        className="absolute group"
+                        style={{ left: `${position}%`, transform: 'translateX(-50%)' }}
+                      >
+                        <div 
+                          className={`
+                            w-3 h-3 rounded-full border-2 
+                            ${isCompleted 
+                              ? 'border-purple-400 bg-purple-600 shadow-lg shadow-purple-500/50' 
+                              : 'border-gray-600 bg-gray-800'
+                            }
+                            transition-all duration-300 hover:scale-110
+                          `}
+                        />
+                        <div 
+                          className={`
+                            absolute -top-8 left-1/2 -translate-x-1/2 
+                            text-xs font-medium px-2 py-1 rounded-md
+                            ${isCompleted 
+                              ? 'bg-purple-500/20 text-purple-300' 
+                              : 'bg-gray-700/20 text-gray-400'
+                            }
+                            opacity-0 group-hover:opacity-100 transition-opacity
+                          `}
+                        >
+                          {(idx + 1) * 40}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

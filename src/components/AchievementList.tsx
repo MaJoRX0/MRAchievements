@@ -1,17 +1,19 @@
 import React from 'react';
-import { Achievement, AchievementType } from '../types';
+import { Achievement, AchievementType, SortOption } from '../types';
 
 interface AchievementListProps {
   achievements: Achievement[];
   onToggleAchievement: (id: string) => void;
+  sortCompleted: boolean;
+  sortOption: SortOption;
+  sortDirection: 'asc' | 'desc';
 }
-
 
 import GalacatGold from "../icons/Galacat-Gold-Achievement.webp";
 import GalacatSilver from "../icons/Galacat-Silver-Achievement.webp";
 import GalacatBronze from "../icons/Galacat-Bronze-Achievement.webp";
 
-import RivalryGold from "../icons/Rivalry-Gold-Achievement.webp"; 
+import RivalryGold from "../icons/Rivalry-Gold-Achievement.webp";
 import RivalrySilver from "../icons/Rivalry-Silver-Achievement.webp";
 import RivalryBronze from "../icons/Rivalry-Bronze-Achievement.webp";
 
@@ -46,27 +48,40 @@ const iconMap: Record<AchievementType, Record<string, string>> = {
   },
 };
 
-
 const TypeIcon: React.FC<{ type: AchievementType; categoryId: string }> = ({ type, categoryId }) => {
-  console.log(`Rendering icon for type: ${type}, categoryId: ${categoryId}`);
   const imageSrc = iconMap[type][categoryId] || DefaultIcon;
   return imageSrc ? <img src={imageSrc} alt={`${type}-${categoryId}`} className="w-13 h-13" /> : null;
 };
+
 export const AchievementList: React.FC<AchievementListProps> = ({
   achievements,
   onToggleAchievement,
+  sortCompleted,
+  sortOption,
+  sortDirection
 }) => {
   const sortedAchievements = [...achievements].sort((a, b) => {
-    if (a.completed === b.completed) {
-      const typeOrder = { silver: 0, gold: 1, bronze: 2 };
-      return typeOrder[a.type] - typeOrder[b.type];
+    if (sortCompleted && a.completed !== b.completed) {
+      return a.completed ? 1 : -1;
     }
-    return a.completed ? 1 : -1;
+
+    let comparison = 0;
+    switch (sortOption) {
+      case 'type':
+        const typeOrder = { silver: 0, gold: 1, bronze: 2 };
+        comparison = typeOrder[a.type] - typeOrder[b.type];
+        break;
+      case 'name':
+        comparison = a.title.localeCompare(b.title);
+        break;
+      case 'points':
+        comparison = a.points - b.points;
+        break;
+    }
+
+    return sortDirection === 'asc' ? comparison : -comparison;
   });
-  
-  
-  
-  
+
   return (
     <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {sortedAchievements.map((achievement) => (
