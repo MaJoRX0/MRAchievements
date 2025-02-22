@@ -3,7 +3,7 @@ import { CategoryList } from './components/CategoryList';
 import { AchievementList } from './components/AchievementList';
 import { AppState, SortOption } from './types';
 import { initialCategories } from './data';
-import { Download, Upload, CheckSquare, Square, Search, MessageCircle, Menu, X, Eye, EyeOff, MoveDown, ChevronDown } from 'lucide-react';
+import { Download, Upload, CheckSquare, Square, Menu, X, Eye, EyeOff, MoveDown, ChevronDown } from 'lucide-react';
 
 function App() {
   const saved = localStorage.getItem('completedAchievements');
