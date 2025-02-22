@@ -1,4 +1,5 @@
 export type AchievementType = 'silver' | 'gold' | 'bronze';
+export type SortOption = 'type' | 'name' | 'points';
 
 export interface Achievement {
   id: string;
