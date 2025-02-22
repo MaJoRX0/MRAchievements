@@ -5,8 +5,6 @@ export const initialCategories: Category[] = [
     id: 'galactas-guide',
     name: "GALACTA'S GUIDE",
     achievements: [
-      
-
       {
         id: "gal1",
         title: "Hello, World!",
@@ -253,7 +251,7 @@ export const initialCategories: Category[] = [
         id: "riv10",
         title: "Inevitable!",
         description: "Win 100 matches",
-        type: "silver",
+        type: "gold",
         points: 10,
         completed: false,
         categoryId: "rivalry-rising"

@@ -11,37 +11,45 @@ import GalacatGold from "../icons/Galacat-Gold-Achievement.webp";
 import GalacatSilver from "../icons/Galacat-Silver-Achievement.webp";
 import GalacatBronze from "../icons/Galacat-Bronze-Achievement.webp";
 
+import RivalryGold from "../icons/Rivalry-Gold-Achievement.webp"; 
 import RivalrySilver from "../icons/Rivalry-Silver-Achievement.webp";
 import RivalryBronze from "../icons/Rivalry-Bronze-Achievement.webp";
 
-
+import HeroicGold from "../icons/Heroic-Gold-Achievement.webp";
 import HeroicSilver from "../icons/Heroic-Silver-Achievement.webp";
 import HeroicBronze from "../icons/Heroic-Bronze-Achievement.webp";
 
+import ChronoversyGold from "../icons/Chronoverse-Gold-Achievement.webp";
+import ChronoversySilver from "../icons/Chronoverse-Silver-Achievement.webp";
 import ChronoversyBronze from "../icons/Chronoverse-Bronze-Achievement.webp";
 
+import DefaultIcon from "../icons/default.webp";
 
 const iconMap: Record<AchievementType, Record<string, string>> = {
   gold: {
     "galactas-guide": GalacatGold,
+    "rivalry-rising": RivalryGold,
+    "heroic-journey": HeroicGold,
+    "chronoversy-saga": ChronoversyGold,
   },
   silver: {
     "galactas-guide": GalacatSilver,
     "rivalry-rising": RivalrySilver,
     "heroic-journey": HeroicSilver,
+    "chronoversy-saga": ChronoversySilver,
   },
   bronze: {
     "galactas-guide": GalacatBronze,
-    "chronoversy-saga": ChronoversyBronze,
     "rivalry-rising": RivalryBronze,
     "heroic-journey": HeroicBronze,
+    "chronoversy-saga": ChronoversyBronze,
   },
 };
 
 
 const TypeIcon: React.FC<{ type: AchievementType; categoryId: string }> = ({ type, categoryId }) => {
   console.log(`Rendering icon for type: ${type}, categoryId: ${categoryId}`);
-  const imageSrc = iconMap[type][categoryId] || "";
+  const imageSrc = iconMap[type][categoryId] || DefaultIcon;
   return imageSrc ? <img src={imageSrc} alt={`${type}-${categoryId}`} className="w-13 h-13" /> : null;
 };
 export const AchievementList: React.FC<AchievementListProps> = ({
