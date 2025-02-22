@@ -252,7 +252,7 @@ export const initialCategories: Category[] = [
         title: "Inevitable!",
         description: "Win 100 matches",
         type: "gold",
-        points: 10,
+        points: 20,
         completed: false,
         categoryId: "rivalry-rising"
       },
