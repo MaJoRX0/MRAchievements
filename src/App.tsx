@@ -155,10 +155,13 @@ function App() {
   const isAllCompleted = selectedCategory?.achievements.every(ach => ach.completed) ?? false;
 
   const filteredAchievements = selectedCategory?.achievements.filter(achievement =>
-    achievement.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+    (
+      achievement.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      achievement.description.toLowerCase().includes(searchTerm.toLowerCase())
+    ) &&
     (!hideCompleted || !achievement.completed)
   ) || [];
-
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       <div className="container mx-auto px-4 py-6 md:p-6">
