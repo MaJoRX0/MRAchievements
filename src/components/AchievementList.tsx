@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Achievement, AchievementType, SortOption } from '../types';
+import { HelpCircle, ExternalLink } from 'lucide-react';
 
 interface AchievementListProps {
   achievements: Achievement[];
@@ -53,6 +54,114 @@ const TypeIcon: React.FC<{ type: AchievementType; categoryId: string }> = ({ typ
   return imageSrc ? <img src={imageSrc} alt={`${type}-${categoryId}`} className="w-13 h-13" /> : null;
 };
 
+
+const HintContent: React.FC<{ content: string }> = ({ content }) => {
+  // Regular expression to match URLs
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = content.split(urlRegex);
+
+  return (
+    <>
+      {parts.map((part, index) => {
+        if (part.match(urlRegex)) {
+          return (
+            <a
+              key={index}
+              href={part}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-purple-400 hover:text-purple-300 transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <span className="underline">Link</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          );
+        }
+        return <span key={index}>{part}</span>;
+      })}
+    </>
+  );
+};
+
+const HighlightedText: React.FC<{ text: string; achievement: Achievement }> = ({ text, achievement }) => {
+  const matches = [];
+  let lastIndex = 0;
+
+  // Find all matches for hero, partner, and target
+  if (achievement.hero) {
+    const index = text.toLowerCase().indexOf(achievement.hero.toLowerCase());
+    if (index !== -1) {
+      matches.push({
+        index,
+        length: achievement.hero.length,
+        type: 'hero',
+        text: text.slice(index, index + achievement.hero.length)
+      });
+    }
+  }
+
+  if (achievement.partner) {
+    const index = text.toLowerCase().indexOf(achievement.partner.toLowerCase());
+    if (index !== -1) {
+      matches.push({
+        index,
+        length: achievement.partner.length,
+        type: 'partner',
+        text: text.slice(index, index + achievement.partner.length)
+      });
+    }
+  }
+
+  if (achievement.target) {
+    const index = text.toLowerCase().indexOf(achievement.target.toLowerCase());
+    if (index !== -1) {
+      matches.push({
+        index,
+        length: achievement.target.length,
+        type: 'target',
+        text: text.slice(index, index + achievement.target.length)
+      });
+    }
+  }
+
+
+  // Sort matches by index
+  matches.sort((a, b) => a.index - b.index);
+
+  // Build the result
+  const result = [];
+  matches.forEach((match) => {
+    // Add text before the match
+    if (match.index > lastIndex) {
+      result.push(text.slice(lastIndex, match.index));
+    }
+
+    // Add the highlighted match
+    result.push(
+      <span
+        key={`${match.type}-${match.index}`}
+        className={`font-semibold ${
+          match.type === 'hero' ? 'text-blue-400' :
+          match.type === 'partner' ? 'text-green-400' :
+          'text-red-400'
+        }`}
+      >
+        {match.text}
+      </span>
+    );
+
+    lastIndex = match.index + match.length;
+  });
+
+  // Add any remaining text
+  if (lastIndex < text.length) {
+    result.push(text.slice(lastIndex));
+  }
+
+  return <>{result}</>;
+};
+
 export const AchievementList: React.FC<AchievementListProps> = ({
   achievements,
   onToggleAchievement,
@@ -60,6 +169,19 @@ export const AchievementList: React.FC<AchievementListProps> = ({
   sortOption,
   sortDirection
 }) => {
+  const [activeHint, setActiveHint] = useState<string | null>(null);
+  const hintRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (hintRef.current && !hintRef.current.contains(event.target as Node)) {
+        setActiveHint(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
   const sortedAchievements = [...achievements].sort((a, b) => {
     if (sortCompleted && a.completed !== b.completed) {
       return a.completed ? 1 : -1;
@@ -102,10 +224,39 @@ export const AchievementList: React.FC<AchievementListProps> = ({
           <div className="relative z-10">
             <div className="flex items-start gap-3">
               <TypeIcon type={achievement.type} categoryId={achievement.categoryId} />
-              <div className="flex-1">
-                <h3 className="font-semibold text-white">{achievement.title}</h3>
-                <p className="text-sm text-gray-400 max-w-[250px] break-words">
-                  {achievement.description}
+              <div className="flex-1 min-w-0"> {/* Add min-w-0 to enable text truncation */}
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="font-semibold text-white truncate">{achievement.title}</h3>
+                  {achievement.hint && (
+                    <div className="relative" ref={hintRef}>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveHint(activeHint === achievement.id ? null : achievement.id);
+                        }}
+                        className="group flex-shrink-0"
+                      >
+                        <HelpCircle className={`w-5 h-5 transition-colors ${
+                          activeHint === achievement.id ? 'text-purple-400' : 'text-gray-400 group-hover:text-purple-400'
+                        }`} />
+                      </button>
+                      
+                      {/* Hint Tooltip */}
+                      {activeHint === achievement.id && (
+                        <div 
+                          className="absolute right-0 mt-2 w-64 p-3 bg-gray-900 rounded-lg shadow-xl border border-purple-500/30 z-50 break-words"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <p className="text-sm text-gray-300">
+                            <HintContent content={achievement.hint} />
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+                <p className="text-sm text-gray-400 break-words">
+                  <HighlightedText text={achievement.description} achievement={achievement} />
                 </p>
                 <span className="block mt-2 text-purple-400 font-medium">
                   {achievement.points} points

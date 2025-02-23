@@ -81,8 +81,8 @@ export const CategoryList: React.FC<CategoryListProps> = ({
                             absolute -top-8 left-1/2 -translate-x-1/2 
                             text-xs font-medium px-2 py-1 rounded-md
                             ${isCompleted 
-                              ? 'bg-purple-500/20 text-purple-300' 
-                              : 'bg-gray-700/20 text-gray-400'
+                              ? 'bg-purple-500/50 text-purple-100' 
+                              : 'bg-gray-700/50 text-gray-100'
                             }
                             opacity-0 group-hover:opacity-100 transition-opacity
                           `}

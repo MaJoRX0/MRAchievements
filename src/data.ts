@@ -12,7 +12,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal2",
@@ -21,7 +25,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal3",
@@ -30,7 +38,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal4",
@@ -39,7 +51,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal5",
@@ -48,7 +64,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal6",
@@ -57,7 +77,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal7",
@@ -66,7 +90,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal8",
@@ -75,7 +103,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal9",
@@ -84,25 +116,37 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal10",
-        title: "Heroic Honor",
+        title: "heroic Honor",
         description: "Read 33 hero stories",
         type: "gold",
         points: 20,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal11",
         title: "Always on Duty",
-        description: "Unlock five Hero costumes",
+        description: "Unlock five hero costumes",
         type: "gold",
         points: 20,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal12",
@@ -111,7 +155,11 @@ export const initialCategories: Category[] = [
         type: "gold",
         points: 20,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal13",
@@ -120,7 +168,11 @@ export const initialCategories: Category[] = [
         type: "gold",
         points: 20,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal14",
@@ -129,7 +181,11 @@ export const initialCategories: Category[] = [
         type: "gold",
         points: 20,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal15",
@@ -138,7 +194,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal16",
@@ -147,7 +207,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "gal17",
@@ -156,7 +220,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "galactas-guide"
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       }    
       
     ]
@@ -173,7 +241,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "rivalry-rising"
+        categoryId: "rivalry-rising",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "riv2",
@@ -182,7 +254,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "rivalry-rising"
+        categoryId: "rivalry-rising",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "riv3",
@@ -191,7 +267,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "rivalry-rising"
+        categoryId: "rivalry-rising",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "riv4",
@@ -200,7 +280,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "rivalry-rising"
+        categoryId: "rivalry-rising",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "riv5",
@@ -209,7 +293,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "rivalry-rising"
+        categoryId: "rivalry-rising",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "riv6",
@@ -218,7 +306,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "rivalry-rising"
+        categoryId: "rivalry-rising",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "riv7",
@@ -227,7 +319,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "rivalry-rising"
+        categoryId: "rivalry-rising",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "riv8",
@@ -236,7 +332,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "rivalry-rising"
+        categoryId: "rivalry-rising",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "riv9",
@@ -245,7 +345,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "rivalry-rising"
+        categoryId: "rivalry-rising",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "riv10",
@@ -254,7 +358,11 @@ export const initialCategories: Category[] = [
         type: "gold",
         points: 20,
         completed: false,
-        categoryId: "rivalry-rising"
+        categoryId: "rivalry-rising",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "riv11",
@@ -263,7 +371,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "rivalry-rising"
+        categoryId: "rivalry-rising",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       }    
     ]
   },
@@ -279,16 +391,24 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Hulk",
+        partner: "",
+        target: "Loki",
+        hint: "MEOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOW"
       },
       {
         id: "her2",
         title: "Vengeance & Glory",
-        description: "As the Punish, partner with Captain America to land one KO",
+        description: "As the Punisher, partner with Captain America to land one KO",
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "The Punisher",
+        partner: "Captain America",
+        target: "",
+        hint: " Watch this https://chatgpt.com/c/67bb3884-4180-8007-9327-6a4bdde26f5e"
       },
       {
         id: "her3",
@@ -297,7 +417,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Storm",
+        partner: "Black Panther",
+        target: "",
+        hint: ""
       },
       {
         id: "her4",
@@ -306,16 +430,24 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Loki",
+        partner: "Thor",
+        target: "",
+        hint: ""
       },
       {
         id: "her5",
         title: "Inner Strength",
-        description: "As Doctor Strange, knock out the Hulk\u2019s soul with Eye of Agamotto",
+        description: "As Doctor Strange, knock out the Hulk’s soul with Eye of Agamotto",
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Doctor Strange",
+        partner: "",
+        target: "Hulk",
+        hint: ""
       },
       {
         id: "her6",
@@ -324,16 +456,24 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Mantis",
+        partner: "Psylocke",
+        target: "",
+        hint: ""
       },
       {
         id: "her7",
-        title: "Arrow\u2019s Bite",
+        title: "Arrow’s Bite",
         description: "As Hawkeye, partner with Black Widow to land one KO",
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Hawkeye",
+        partner: "Black Widow",
+        target: "",
+        hint: ""
       },
       {
         id: "her8",
@@ -342,7 +482,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Captain America",
+        partner: "Winter Soldier",
+        target: "",
+        hint: ""
       },
       {
         id: "her9",
@@ -351,7 +495,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Rocket Raccoon",
+        partner: "Squirrel Girl",
+        target: "",
+        hint: ""
       },
       {
         id: "her10",
@@ -360,7 +508,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Hela",
+        partner: "Loki",
+        target: "Thor",
+        hint: ""
       },
       {
         id: "her11",
@@ -369,7 +521,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Cloak & Dagger",
+        partner: "Spider-Man",
+        target: "",
+        hint: ""
       },
       {
         id: "her12",
@@ -378,7 +534,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Black Panther",
+        partner: "",
+        target: "Namor",
+        hint: ""
       },
       {
         id: "her13",
@@ -387,7 +547,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Groot",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her14",
@@ -396,7 +560,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Magik",
+        partner: "Doctor Strange",
+        target: "",
+        hint: ""
       },
       {
         id: "her15",
@@ -405,7 +573,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Moon Knight",
+        partner: "Hela",
+        target: "",
+        hint: ""
       },
       {
         id: "her16",
@@ -414,7 +586,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Luna Snow",
+        partner: "",
+        target: "Namor",
+        hint: ""
       },
       {
         id: "her17",
@@ -423,7 +599,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Squirrel Girl",
+        partner: "Iron Man",
+        target: "",
+        hint: ""
       },
       {
         id: "her18",
@@ -432,7 +612,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Black Widow",
+        partner: "Winter Soldier",
+        target: "",
+        hint: ""
       },
       {
         id: "her19",
@@ -441,7 +625,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Iron Man",
+        partner: "Doctor Strange",
+        target: "",
+        hint: ""
       },
       {
         id: "her20",
@@ -450,7 +638,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Venom",
+        partner: "",
+        target: "Spider-Man",
+        hint: ""
       },
       {
         id: "her21",
@@ -459,7 +651,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Spider-Man",
+        partner: "Captain America",
+        target: "",
+        hint: ""
       },
       {
         id: "her22",
@@ -468,7 +664,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Magneto",
+        partner: "Scarlet Witch",
+        target: "",
+        hint: ""
       },
       {
         id: "her23",
@@ -477,7 +677,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Scarlet Witch",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her24",
@@ -486,7 +690,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Thor",
+        partner: "",
+        target: "Loki",
+        hint: ""
       },
       {
         id: "her25",
@@ -495,7 +703,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Winter Soldier",
+        partner: "Rocket Raccoon",
+        target: "",
+        hint: ""
       },
       {
         id: "her26",
@@ -504,16 +716,24 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Peni Parker",
+        partner: "Spider-Man",
+        target: "",
+        hint: ""
       },
       {
         id: "her27",
         title: "A Better Plan",
-        description: "As Star-Lord, issue the \u201cFall Back!\u201d ping three times",
+        description: "As Star-Lord, issue the “Fall Back!” ping three times",
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Star-Lord",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her28",
@@ -522,7 +742,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Namor",
+        partner: "Jeff the Land Shark",
+        target: "",
+        hint: ""
       },
       {
         id: "her29",
@@ -531,7 +755,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Adam Warlock",
+        partner: "",
+        target: "Venom",
+        hint: ""
       },
       {
         id: "her30",
@@ -540,7 +768,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Jeff the Land Shark",
+        partner: "Luna Snow",
+        target: "",
+        hint: ""
       },
       {
         id: "her31",
@@ -549,7 +781,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Psylocke",
+        partner: "Iron Fist",
+        target: "",
+        hint: ""
       },
       {
         id: "her32",
@@ -558,7 +794,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Wolverine",
+        partner: "",
+        target: "Magneto",
+        hint: ""
       },
       {
         id: "her33",
@@ -567,7 +807,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Iron Fist",
+        partner: "Luna Snow",
+        target: "",
+        hint: ""
       },
       {
         id: "her34",
@@ -576,7 +820,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Invisible Woman",
+        partner: "Black Widow",
+        target: "",
+        hint: ""
       },
       {
         id: "her35",
@@ -585,7 +833,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Mister Fantastic",
+        partner: "Iron Man",
+        target: "",
+        hint: ""
       },
       {
         id: "her36",
@@ -594,16 +846,24 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Human Torch",
+        partner: "Spider-Man",
+        target: "",
+        hint: ""
       },
       {
         id: "her37",
-        title: "Who\u2019s the Strongest now?",
+        title: "Who’s the Strongest now?",
         description: "As The Thing, take down an enemy Hulk",
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "The Thing",
+        partner: "",
+        target: "Hulk",
+        hint: ""
       },
       {
         id: "her38",
@@ -612,7 +872,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Bruce Banner",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her39",
@@ -621,7 +885,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "The Punisher",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her40",
@@ -630,7 +898,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Storm",
+        partner: "X-Men",
+        target: "",
+        hint: ""
       },
       {
         id: "her41",
@@ -639,7 +911,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Loki",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her42",
@@ -648,7 +924,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Doctor Strange",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her43",
@@ -657,7 +937,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Mantis",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her44",
@@ -666,7 +950,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Hawkeye",
+        partner: "Avengers",
+        target: "",
+        hint: ""
       },
       {
         id: "her45",
@@ -675,16 +963,24 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Captain America",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her46",
-        title: "Go Get \u2018Em, Guardians",
+        title: "Go Get ‘Em, Guardians",
         description: "As Rocket Raccoon, revive the Guardians of the Galaxy members five times",
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Rocket Raccoon",
+        partner: "Guardians of the Galaxy",
+        target: "",
+        hint: ""
       },
       {
         id: "her47",
@@ -693,7 +989,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Hela",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her48",
@@ -702,7 +1002,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Cloak & Dagger",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her49",
@@ -711,7 +1015,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Black Panther",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her50",
@@ -720,16 +1028,24 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Groot",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her51",
-        title: "Demon\u2019s Roar",
+        title: "Demon’s Roar",
         description: "As Magik, land 3 KOs within a single transformation into Darkchild",
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Magik",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her52",
@@ -738,7 +1054,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Moon Knight",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her53",
@@ -747,16 +1067,24 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Luna Snow",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her54",
-        title: "\u201cAhhh, those tiny claws!\u201d",
+        title: "Ahhh, those tiny claws!",
         description: "As Squirrel Girl, land three KOs with a single use of Unbeatable Squirrel Tsunami",
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Squirrel Girl",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her55",
@@ -765,7 +1093,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Black Widow",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her56",
@@ -774,7 +1106,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Iron Man",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her57",
@@ -783,7 +1119,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Venom",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her58",
@@ -792,7 +1132,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Spider-Man",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her59",
@@ -801,7 +1145,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Magneto",
+        partner: "Mutant",
+        target: "",
+        hint: ""
       },
       {
         id: "her60",
@@ -810,7 +1158,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Scarlet Witch",
+        partner: "",
+        target: "Mutant",
+        hint: ""
       },
       {
         id: "her61",
@@ -819,7 +1171,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Thor",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her62",
@@ -828,7 +1184,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Winter Soldier",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her63",
@@ -837,7 +1197,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Peni Parker",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her64",
@@ -846,7 +1210,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Star-Lord",
+        partner: "Guardians of the Galaxy",
+        target: "",
+        hint: ""
       },
       {
         id: "her65",
@@ -855,7 +1223,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Namor",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her66",
@@ -864,16 +1236,24 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Adam Warlock",
+        partner: "Guardians of the Galaxy",
+        target: "",
+        hint: ""
       },
       {
         id: "her67",
         title: "Snack Attack!",
-        description: "As Jeff the Land Shark, swallow four enemies with a single use of It\u2019s Jeff!",
+        description: "As Jeff the Land Shark, swallow four enemies with a single use of It’s Jeff!",
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Jeff the Land Shark",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her68",
@@ -882,7 +1262,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Psylocke",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her69",
@@ -891,7 +1275,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Wolverine",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her70",
@@ -900,7 +1288,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Iron Fist",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her71",
@@ -909,7 +1301,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Invisible Woman",
+        partner: "Fantastic Four",
+        target: "",
+        hint: ""
       },
       {
         id: "her72",
@@ -918,16 +1314,24 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Mister Fantastic",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her73",
         title: "What Time Is It?",
-        description: "As The Thing, launch up four enemies with a single use of Clobberin\u2019 Time",
+        description: "As The Thing, launch up four enemies with a single use of Clobberin’ Time",
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "The Thing",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "her74",
@@ -936,7 +1340,11 @@ export const initialCategories: Category[] = [
         type: "silver",
         points: 10,
         completed: false,
-        categoryId: "heroic-journey"
+        categoryId: "heroic-journey",
+        hero: "Human Torch",
+        partner: "",
+        target: "",
+        hint: ""
       }    
     ]
   },
@@ -952,7 +1360,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr2",
@@ -961,7 +1373,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr3",
@@ -970,7 +1386,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr4",
@@ -979,7 +1399,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr5",
@@ -988,7 +1412,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr6",
@@ -997,7 +1425,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr7",
@@ -1006,7 +1438,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr8",
@@ -1015,7 +1451,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr9",
@@ -1024,7 +1464,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr10",
@@ -1033,7 +1477,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr11",
@@ -1042,7 +1490,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr12",
@@ -1051,7 +1503,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr13",
@@ -1060,7 +1516,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr14",
@@ -1069,7 +1529,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr15",
@@ -1078,7 +1542,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr16",
@@ -1087,7 +1555,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr17",
@@ -1096,7 +1568,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr18",
@@ -1105,7 +1581,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr19",
@@ -1114,7 +1594,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr20",
@@ -1123,7 +1607,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr21",
@@ -1132,7 +1620,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr22",
@@ -1141,7 +1633,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr23",
@@ -1150,7 +1646,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr24",
@@ -1159,7 +1659,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr25",
@@ -1168,7 +1672,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr26",
@@ -1177,7 +1685,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr27",
@@ -1186,7 +1698,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr28",
@@ -1195,7 +1711,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr29",
@@ -1204,7 +1724,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr30",
@@ -1213,7 +1737,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr31",
@@ -1222,7 +1750,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr32",
@@ -1231,7 +1763,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr33",
@@ -1240,7 +1776,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr34",
@@ -1249,7 +1789,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr35",
@@ -1258,7 +1802,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr36",
@@ -1267,7 +1815,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr37",
@@ -1276,7 +1828,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr38",
@@ -1285,7 +1841,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr39",
@@ -1294,7 +1854,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr40",
@@ -1303,7 +1867,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr41",
@@ -1312,7 +1880,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr42",
@@ -1321,7 +1893,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr43",
@@ -1330,7 +1906,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       },
       {
         id: "chr44",
@@ -1339,7 +1919,11 @@ export const initialCategories: Category[] = [
         type: "bronze",
         points: 5,
         completed: false,
-        categoryId: "chronoversy-saga"
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       }    
     ]
   }

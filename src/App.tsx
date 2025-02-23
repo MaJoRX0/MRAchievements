@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CategoryList } from './components/CategoryList';
 import { AchievementList } from './components/AchievementList';
 import { AppState, SortOption } from './types';
 import { initialCategories } from './data';
-import { Download, Upload, CheckSquare, Square, Menu, X, Eye, EyeOff, MoveDown, ChevronDown } from 'lucide-react';
+import { Download, Upload, CheckSquare, Square, Menu, X, Eye, EyeOff, MoveDown, ChevronDown, Settings, Search, Filter } from 'lucide-react';
+
+import Icon from "./icons/default.webp";
+
 
 function App() {
+  const settingsRef = useRef<HTMLDivElement>(null);
   const saved = localStorage.getItem('completedAchievements');
   const completedIds: Record<string, string[]> = saved ? JSON.parse(saved) : {};
 
@@ -31,11 +35,51 @@ function App() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [hideCompleted, setHideCompleted] = useState(initialHideCompleted);
   const [sortCompleted, setSortCompleted] = useState(initialSortCompleted);
   const [sortOption, setSortOption] = useState<SortOption>(savedSortOption as SortOption || 'type');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>(savedSortDirection as 'asc' | 'desc' || 'asc');
-  const [isSortMenuOpen, setIsSortMenuOpen] = useState(false);
+
+  // New filter states
+  const [selectedHero, setSelectedHero] = useState<string>('');
+  const [selectedPartner, setSelectedPartner] = useState<string>('');
+  const [selectedTarget, setSelectedTarget] = useState<string>('');
+
+  // Click outside handler for settings menu
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (settingsRef.current && !settingsRef.current.contains(event.target as Node)) {
+        setIsSettingsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Get unique heroes, partners, and targets
+  const getUniqueValues = () => {
+    const heroes = new Set<string>();
+    const partners = new Set<string>();
+    const targets = new Set<string>();
+
+    state.categories.forEach(category => {
+      category.achievements.forEach(achievement => {
+        if (achievement.hero) heroes.add(achievement.hero);
+        if (achievement.partner) partners.add(achievement.partner);
+        if (achievement.target) targets.add(achievement.target);
+      });
+    });
+
+    return {
+      heroes: Array.from(heroes).sort(),
+      partners: Array.from(partners).sort(),
+      targets: Array.from(targets).sort()
+    };
+  };
+
+  const { heroes, partners, targets } = getUniqueValues();
 
   useEffect(() => {
     localStorage.setItem('hideCompleted', JSON.stringify(hideCompleted));
@@ -67,15 +111,12 @@ function App() {
     localStorage.setItem('completedAchievements', JSON.stringify(completedAchievements));
   }, [state.categories]);
 
-  const totalAchievements = state.categories.reduce((sum, category) => sum + category.achievements.length, 0);
-  const completedAchievements = state.categories.reduce((sum, category) => sum + category.achievements.filter(ach => ach.completed).length, 0);
-  const progressPercentage = totalAchievements > 0 ? (completedAchievements / totalAchievements) * 100 : 0;
-
   const handleSelectCategory = (categoryId: string) => {
     setState(prev => ({ ...prev, selectedCategory: categoryId }));
     localStorage.setItem('selectedCategory', categoryId);
     setSearchTerm('');
     setIsMobileMenuOpen(false);
+    setIsSettingsOpen(false);
   };
 
   const handleToggleAchievement = (achievementId: string) => {
@@ -156,22 +197,31 @@ function App() {
 
   const filteredAchievements = selectedCategory?.achievements.filter(achievement =>
     (
-      achievement.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      achievement.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       achievement.description.toLowerCase().includes(searchTerm.toLowerCase())
     ) &&
-    (!hideCompleted || !achievement.completed)
+    (!hideCompleted || !achievement.completed) &&
+    (!selectedHero || achievement.hero === selectedHero) &&
+    (!selectedPartner || achievement.partner === selectedPartner) &&
+    (!selectedTarget || achievement.target === selectedTarget)
   ) || [];
-  
+
+  const totalAchievements = state.categories.reduce((sum, category) => sum + category.achievements.length, 0);
+  const completedAchievements = state.categories.reduce((sum, category) => sum + category.achievements.filter(ach => ach.completed).length, 0);
+  const progressPercentage = totalAchievements > 0 ? (completedAchievements / totalAchievements) * 100 : 0;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       <div className="container mx-auto px-4 py-6 md:p-6">
         {/* Header Section */}
         <div className="flex flex-col gap-2 md:gap-4 mb-4 md:mb-8 md:flex-row md:justify-between md:items-start">
           <div className="flex flex-col md:flex-row md:items-start gap-2 flex-1 text-center md:text-left">
-            <h1 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-              MR Achievements Tracker
-            </h1>
-
+            <div className="flex items-center justify-center md:justify-start gap-2">
+              <img src={Icon} alt="MR Icon" className="w-10 h-10" />
+              <h1 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                MR Achievements Tracker
+              </h1>
+            </div>
 
             <div className="flex items-center flex-1 md:pt-3.5">
               <div className="relative flex-1 h-3 bg-gray-700 rounded-full overflow-hidden">
@@ -184,35 +234,213 @@ function App() {
             </div>
           </div>
 
-          <div className="flex gap-2 md:gap-4">
-            <button
-              onClick={handleExport}
-              className="flex-1 md:flex-none flex items-center justify-center gap-2 px-3 md:px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors text-sm md:text-base"
-            >
-              <Download className="w-4 h-4" />
-              <span className="hidden md:inline">Export</span>
-            </button>
-            <label className="flex-1 md:flex-none flex items-center justify-center gap-2 px-3 md:px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors cursor-pointer text-sm md:text-base">
-              <Upload className="w-4 h-4" />
-              <span className="hidden md:inline">Import</span>
-              <input type="file" accept=".json" onChange={handleImport} className="hidden" />
-            </label>
-          </div>
+          <button
+            onClick={() => setIsSettingsOpen(!isSettingsOpen)}
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors"
+          >
+            <Settings className="w-4 h-4" />
+            <span>Settings</span>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden fixed bottom-4 right-4 z-50 p-4 bg-purple-600 rounded-full shadow-lg"
+        {!isSettingsOpen && (
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden fixed bottom-4 right-4 z-50 p-4 bg-purple-600 rounded-full shadow-lg"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        )}
+
+        {/* Settings Menu */}
+        <div
+          ref={settingsRef}
+          className={`
+            fixed inset-y-0 right-0 z-40 w-80 bg-gray-900/95 backdrop-blur-sm transform transition-transform duration-300 ease-in-out
+            ${isSettingsOpen ? 'translate-x-0' : 'translate-x-full'}
+          `}
         >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+          <div className="h-full p-6 overflow-y-auto">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-semibold">Settings</h2>
+              <button
+                onClick={() => setIsSettingsOpen(false)}
+                className="p-2 hover:bg-gray-800 rounded-lg"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="space-y-6">
+              {/* Filters */}
+              <div className="space-y-2">
+                <h3 className="text-sm font-medium text-gray-300">Filters</h3>
+                <div className="space-y-2">
+                  {/* Hero Filter */}
+                  <div className="space-y-1">
+                    <label className="text-sm text-gray-400">Hero</label>
+                    <div className="relative">
+                      <select
+                        value={selectedHero}
+                        onChange={(e) => setSelectedHero(e.target.value)}
+                        className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-sm focus:outline-none focus:border-purple-500 appearance-none pr-8"
+                      >
+                        <option value="">All Heroes</option>
+                        {heroes.map(hero => (
+                          <option key={hero} value={hero}>{hero}</option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                        <ChevronDown className="w-4 h-4 text-gray-400" />
+                      </div>
+                      {selectedHero && (
+                        <button
+                          onClick={() => setSelectedHero('')}
+                          className="absolute inset-y-0 right-8 flex items-center px-2 text-gray-400 hover:text-white"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Partner Filter */}
+                  <div className="space-y-1">
+                    <label className="text-sm text-gray-400">Partner</label>
+                    <div className="relative">
+                      <select
+                        value={selectedPartner}
+                        onChange={(e) => setSelectedPartner(e.target.value)}
+                        className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-sm focus:outline-none focus:border-purple-500 appearance-none pr-8"
+                      >
+                        <option value="">All Partners</option>
+                        {partners.map(partner => (
+                          <option key={partner} value={partner}>{partner}</option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                        <ChevronDown className="w-4 h-4 text-gray-400" />
+                      </div>
+                      {selectedPartner && (
+                        <button
+                          onClick={() => setSelectedPartner('')}
+                          className="absolute inset-y-0 right-8 flex items-center px-2 text-gray-400 hover:text-white"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Target Filter */}
+                  <div className="space-y-1">
+                    <label className="text-sm text-gray-400">Target</label>
+                    <div className="relative">
+                      <select
+                        value={selectedTarget}
+                        onChange={(e) => setSelectedTarget(e.target.value)}
+                        className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-sm focus:outline-none focus:border-purple-500 appearance-none pr-8"
+                      >
+                        <option value="">All Targets</option>
+                        {targets.map(target => (
+                          <option key={target} value={target}>{target}</option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                        <ChevronDown className="w-4 h-4 text-gray-400" />
+                      </div>
+                      {selectedTarget && (
+                        <button
+                          onClick={() => setSelectedTarget('')}
+                          className="absolute inset-y-0 right-8 flex items-center px-2 text-gray-400 hover:text-white"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Import/Export */}
+              <div className="space-y-2">
+                <h3 className="text-sm font-medium text-gray-300">Data Management</h3>
+                <div className="space-y-2">
+                  <button
+                    onClick={handleExport}
+                    className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700"
+                  >
+                    <span>Export Progress</span>
+                    <Upload className="w-4 h-4" />
+                  </button>
+                  <label className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer">
+                    <span>Import Progress</span>
+                    <Download className="w-4 h-4" />
+                    <input type="file" accept=".json" onChange={handleImport} className="hidden" />
+                  </label>
+                </div>
+              </div>
+
+              {/* Visibility */}
+              <div className="space-y-2">
+                <h3 className="text-sm font-medium text-gray-300">Visibility</h3>
+                <button
+                  onClick={() => setHideCompleted(!hideCompleted)}
+                  className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700"
+                >
+                  <span>{hideCompleted ? "Show Completed" : "Hide Completed"}</span>
+                  {hideCompleted ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                </button>
+              </div>
+
+              {/* Sorting */}
+              <div className="space-y-2">
+                <h3 className="text-sm font-medium text-gray-300">Sorting</h3>
+                <div className="space-y-2">
+                  <button
+                    onClick={() => setSortCompleted(!sortCompleted)}
+                    className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700"
+                  >
+                    <span>Move Completed to Bottom</span>
+                    <MoveDown className={`w-4 h-4 ${sortCompleted ? 'text-purple-400' : ''}`} />
+                  </button>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-300">Sort by</label>
+                    {['type', 'name', 'points'].map((option) => (
+                      <button
+                        key={option}
+                        onClick={() => {
+                          if (sortOption === option) {
+                            setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+                          } else {
+                            setSortOption(option as SortOption);
+                            setSortDirection('asc');
+                          }
+                        }}
+                        className={`w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700 ${
+                          sortOption === option ? 'text-purple-400' : ''
+                        }`}
+                      >
+                        <span>{option.charAt(0).toUpperCase() + option.slice(1)}</span>
+                        {sortOption === option && (
+                          <ChevronDown className={`w-4 h-4 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Main Content */}
         <div className="flex flex-col md:flex-row md:gap-8">
           {/* Mobile Category Sidebar */}
           <div className={`
-            fixed inset-0 z-40 bg-gray-900/95 backdrop-blur-sm md:relative md:bg-transparent md:block md:backdrop-blur-none
+            fixed inset-0 z-30 bg-gray-900/95 backdrop-blur-sm md:relative md:bg-transparent md:block md:backdrop-blur-none
             transition-transform duration-300 ease-in-out w-full md:w-80 flex justify-center
             ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
           `}>
@@ -229,69 +457,20 @@ function App() {
           <div className="flex-1 mt-1 md:mt-0">
             {selectedCategory && (
               <div className="space-y-4">
-                <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                  <div className="flex flex-col gap-2 md:gap-4 md:flex-row w-full md:w-auto">
+                <div className="flex flex-col gap-4 md:flex-row md:items-center">
+                  <div className="relative flex-1">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input
                       type="text"
                       placeholder="Search achievements..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="px-4 py-2 rounded-md bg-gray-700 text-white w-full md:w-72"
+                      className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
                     />
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => setHideCompleted(!hideCompleted)}
-                        className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors"
-                      >
-                        {hideCompleted ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
-                        <span>{hideCompleted ? "Show Completed" : "Hide Completed"}</span>
-                      </button>
-                      <button
-                        onClick={() => setSortCompleted(!sortCompleted)}
-                        className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors"
-                        title={sortCompleted ? "Disable move completed to bottom" : "Enable move completed to bottom"}
-                      >
-                        <MoveDown className="w-4 h-4" />
-                      </button>
-                      <div className="relative flex-1 md:flex-none">
-                        <button
-                          onClick={() => setIsSortMenuOpen(!isSortMenuOpen)}
-                          className="w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors"
-                        >
-                          Sort by
-                          <ChevronDown className="w-4 h-4" />
-                        </button>
-                        {isSortMenuOpen && (
-                          <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 z-50">
-                            <div className="py-1">
-                              {['type', 'name', 'points'].map((option) => (
-                                <button
-                                  key={option}
-                                  onClick={() => {
-                                    if (sortOption === option) {
-                                      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
-                                    } else {
-                                      setSortOption(option as SortOption);
-                                      setSortDirection('asc');
-                                    }
-                                    setIsSortMenuOpen(false);
-                                  }}
-                                  className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-700 ${sortOption === option ? 'text-purple-400' : 'text-gray-300'
-                                    }`}
-                                >
-                                  {option.charAt(0).toUpperCase() + option.slice(1)}
-                                  {sortOption === option && ` (${sortDirection === 'asc' ? '↑' : '↓'})`}
-                                </button>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
                   </div>
                   <button
                     onClick={() => handleToggleAll(selectedCategory.id, !isAllCompleted)}
-                    className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors w-full md:w-auto"
+                    className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors whitespace-nowrap"
                   >
                     {isAllCompleted ? <Square className="w-4 h-4" /> : <CheckSquare className="w-4 h-4" />}
                     <span>{isAllCompleted ? "Deselect All" : "Select All"}</span>
