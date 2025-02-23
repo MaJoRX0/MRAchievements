@@ -395,7 +395,7 @@ export const initialCategories: Category[] = [
         hero: "Hulk",
         partner: "",
         target: "Loki",
-        hint: "MEOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOW"
+        hint: "You need to use your slam ultimate ability as Hulk on Loki"
       },
       {
         id: "her2",
@@ -408,7 +408,7 @@ export const initialCategories: Category[] = [
         hero: "The Punisher",
         partner: "Captain America",
         target: "",
-        hint: " Watch this https://chatgpt.com/c/67bb3884-4180-8007-9327-6a4bdde26f5e"
+        hint: ""
       },
       {
         id: "her3",
@@ -447,7 +447,7 @@ export const initialCategories: Category[] = [
         hero: "Doctor Strange",
         partner: "",
         target: "Hulk",
-        hint: ""
+        hint: "As strange use your Ultimate ability on Hulk"
       },
       {
         id: "her6",
@@ -889,7 +889,7 @@ export const initialCategories: Category[] = [
         hero: "The Punisher",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Throw your smoke grenade at someone *without killing them* and then kill them with your gun"
       },
       {
         id: "her40",
@@ -902,7 +902,7 @@ export const initialCategories: Category[] = [
         hero: "Storm",
         partner: "X-Men",
         target: "",
-        hint: ""
+        hint: "X-Men Members (  Storm, Wolverine, Magik and Psylocke  )"
       },
       {
         id: "her41",
@@ -967,7 +967,7 @@ export const initialCategories: Category[] = [
         hero: "Captain America",
         partner: "",
         target: "",
-        hint: ""
+        hint: "kill 3 while your ultimate ability is active"
       },
       {
         id: "her46",
@@ -980,7 +980,7 @@ export const initialCategories: Category[] = [
         hero: "Rocket Raccoon",
         partner: "Guardians of the Galaxy",
         target: "",
-        hint: ""
+        hint: "Guardians of the Galaxy Members (  Starlord, maybe Adam, Mantis, Groot, Rocket  )"
       },
       {
         id: "her47",
@@ -1045,7 +1045,7 @@ export const initialCategories: Category[] = [
         hero: "Magik",
         partner: "",
         target: "",
-        hint: ""
+        hint: "kill 3 while in darkchild form"
       },
       {
         id: "her52",
@@ -1097,7 +1097,7 @@ export const initialCategories: Category[] = [
         hero: "Black Widow",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Kill 3 with headshot in a single match"
       },
       {
         id: "her56",
@@ -1149,7 +1149,7 @@ export const initialCategories: Category[] = [
         hero: "Magneto",
         partner: "Mutant",
         target: "",
-        hint: ""
+        hint: "Mutants (  Namor, Magik, Psylocke, Wolverine, Storm, Magneto  )"
       },
       {
         id: "her60",
@@ -1162,7 +1162,7 @@ export const initialCategories: Category[] = [
         hero: "Scarlet Witch",
         partner: "",
         target: "Mutant",
-        hint: ""
+        hint: "Mutants (  Namor, Magik, Psylocke, Wolverine, Storm, Magneto  )"
       },
       {
         id: "her61",
@@ -1240,7 +1240,7 @@ export const initialCategories: Category[] = [
         hero: "Adam Warlock",
         partner: "Guardians of the Galaxy",
         target: "",
-        hint: ""
+        hint: "Guardians of the Galaxy Members (  Starlord, maybe Adam, Mantis, Groot, Rocket  )"
       },
       {
         id: "her67",
@@ -1305,7 +1305,7 @@ export const initialCategories: Category[] = [
         hero: "Invisible Woman",
         partner: "Fantastic Four",
         target: "",
-        hint: ""
+        hint: "Fantastic Four Members (  Mister Fantastic, Invisible Woman, The Thing  )"
       },
       {
         id: "her72",
@@ -1364,7 +1364,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://www.youtube.com/watch?v=SQceYCyJq28 )"
       },
       {
         id: "chr2",
@@ -1377,7 +1377,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://www.youtube.com/watch?v=zfOmpKozQhg )"
       },
       {
         id: "chr3",
@@ -1390,7 +1390,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as a Defender in Klyntar"
       },
       {
         id: "chr4",
@@ -1403,7 +1403,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as an Attacker in Klyntar"
       },
       {
         id: "chr5",
@@ -1416,7 +1416,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://www.youtube.com/watch?v=RbECWuLHigc )"
       },
       {
         id: "chr6",
@@ -1429,7 +1429,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://www.youtube.com/watch?v=JtvzSdhcwxw )"
       },
       {
         id: "chr7",
@@ -1442,7 +1442,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as a Defender in the Intergalactic Empire of Wakanda"
       },
       {
         id: "chr8",
@@ -1455,7 +1455,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/6XFDC5S7TS0?si=OoFJiWuypqJp_ckb&t=157 )"
       },
       {
         id: "chr9",
@@ -1468,7 +1468,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win a round in Intergalactic Empire: Warrior Falls"
       },
       {
         id: "chr10",
@@ -1481,7 +1481,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win a round in Intergalactic Empire: Vibrani-Chronovium Lab"
       },
       {
         id: "chr11",
@@ -1494,7 +1494,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/6XFDC5S7TS0?si=6ds6WBlazmaIYcUb&t=207 )"
       },
       {
         id: "chr12",
@@ -1507,7 +1507,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as an Attacker in Intergalactic Empire: Hall of Djaila"
       },
       {
         id: "chr13",
@@ -1520,7 +1520,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://www.youtube.com/watch?v=CuU8hXyw8EU )"
       },
       {
         id: "chr14",
@@ -1533,7 +1533,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as a Defender in Tokyo 2099: Shin-Shibuya CONVOY"
       },
       {
         id: "chr15",
@@ -1546,7 +1546,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as an Attacker in Tokyo 2099: Shin-Shibuya CONVERGENCE"
       },
       {
         id: "chr16",
@@ -1559,7 +1559,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Read this ( https://gamerant.com/marvel-rivals-how-listen-to-stark-fujikawas-promo/#other-achievements-to-complete-in-the-same-map )"
       },
       {
         id: "chr17",
@@ -1572,7 +1572,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Read this ( https://gamerant.com/marvel-rivals-how-listen-to-stark-fujikawas-promo/ )"
       },
       {
         id: "chr18",
@@ -1585,7 +1585,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Read this ( https://gamerant.com/marvel-rivals-how-listen-to-stark-fujikawas-promo/#other-achievements-to-complete-in-the-same-map )"
       },
       {
         id: "chr19",
@@ -1598,7 +1598,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Read this ( https://gamerant.com/marvel-rivals-let-her-speak-whispers-from-the-web-achievements-guide/#how-to-unlock-the-ldquo-whispers-from-the-web-rdquo-achievement-in-marvel-rivals )"
       },
       {
         id: "chr20",
@@ -1611,7 +1611,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as a Defender in Tokyo 2099: Shin-Shibuya CONVERGENCE"
       },
       {
         id: "chr21",
@@ -1624,7 +1624,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as an Attacker in Tokyo 2099: Shin-Shibuya CONVOY"
       },
       {
         id: "chr22",
@@ -1637,7 +1637,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win in Yggsgard: Royal Palace Bifrost Garden in Thor side ( RNG )"
       },
       {
         id: "chr23",
@@ -1650,7 +1650,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win in Yggsgard: Royal Palace Bifrost Garden in Loki Side ( RNG )"
       },
       {
         id: "chr24",
@@ -1663,7 +1663,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/5pDJ5mBjg4Q?si=-JlYrZgXl6gPpT2e&t=473 )"
       },
       {
         id: "chr25",
@@ -1676,7 +1676,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win a round in Yggsgard: Royal Palace Bifrost Garden in Thor Side ( RNG )"
       },
       {
         id: "chr26",
@@ -1689,7 +1689,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/whtLc0wjv9M?si=YrXBiAHFn3Td1hkH&t=880 )"
       },
       {
         id: "chr27",
@@ -1702,7 +1702,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as an Attacker in Yggsgard: Yaggdrasil path CONVOY"
       },
       {
         id: "chr28",
@@ -1715,7 +1715,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as a Defender in Yggsgard: Yaggdrasil path CONVOY"
       },
       {
         id: "chr29",
@@ -1728,7 +1728,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/whtLc0wjv9M?si=3jZkmYfddu-3C3qO&t=141 )"
       },
       {
         id: "chr30",
@@ -1741,7 +1741,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/whtLc0wjv9M?si=JswS-VLmVNlevpEw&t=273 )"
       },
       {
         id: "chr31",
@@ -1754,7 +1754,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win in Hydra Charteris Base: Frozen Air Field DOMINATION"
       },
       {
         id: "chr32",
@@ -1767,7 +1767,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win in Hydra Charteris Base: Soldier-factory DOMINATION"
       },
       {
         id: "chr33",
@@ -1780,7 +1780,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/whtLc0wjv9M?si=VdDWC8DgA-Tytoh4&t=186 )"
       },
       {
         id: "chr34",
@@ -1793,7 +1793,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/whtLc0wjv9M?si=mdu5S3MYqeW0cc0G&t=228 )"
       },
       {
         id: "chr35",
@@ -1806,7 +1806,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/whtLc0wjv9M?si=Rdch6XzPjW_xHpiP&t=29 )"
       },
       {
         id: "chr36",
@@ -1819,7 +1819,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/whtLc0wjv9M?si=5OW4LKMpj_020C9A&t=10 )"
       },
       {
         id: "chr37",
@@ -1832,7 +1832,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Play a DOOM MATCH"
       },
       {
         id: "chr38",
@@ -1845,7 +1845,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/whtLc0wjv9M?si=KS-hN9qtVsddmh5g&t=108 )"
       },
       {
         id: "chr39",
@@ -1858,7 +1858,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as a Defender in Midtown CONVOY"
       },
       {
         id: "chr40",
@@ -1871,7 +1871,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as an Attacker in Midtown CONVOY"
       },
       {
         id: "chr41",
@@ -1884,7 +1884,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Watch this ( https://youtu.be/Q2QlWuOyEZQ?si=pL2pQabMlIQJXJat&t=980 )"
       },
       {
         id: "chr42",
@@ -1897,7 +1897,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Capture the first point in Empire of Eternal Night"
       },
       {
         id: "chr43",
@@ -1910,7 +1910,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as a Defender in Empire of Eternal Night"
       },
       {
         id: "chr44",
@@ -1923,7 +1923,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Win as an Attacker in Empire of Eternal Night"
       }    
     ]
   }
