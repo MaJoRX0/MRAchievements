@@ -40,8 +40,4 @@ export const validHeroes = [
 
 type HeroName = (typeof validHeroes)[number]; // Type-safe hero list
 
-function normalizeHeroName(name: string): HeroName | "" {
-  const match = validHeroes.find(hero => hero.toLowerCase() === name.toLowerCase());
-  return match ? match as HeroName : "";
-}
   

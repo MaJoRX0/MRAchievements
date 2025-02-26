@@ -4,7 +4,7 @@ import { AchievementList } from './components/AchievementList';
 import { AppState, SortOption } from './types';
 import { initialCategories } from './data';
 import { generateShareableUrl, hasSharedProgress, getSharedProgress } from './utils/shareUtils';
-import { Check, Share2, Download, Upload, CheckSquare, Square, Menu, X, Eye, EyeOff, MoveDown, ChevronDown, Settings, Search, Filter } from 'lucide-react';
+import { Check, Share2, Download, Upload, CheckSquare, Square, Menu, X, Eye, EyeOff, MoveDown, ChevronDown, Settings, Search } from 'lucide-react';
 import { PopConfirm } from './components/PopConfirm';
 
 import Icon from "./icons/default.webp";
