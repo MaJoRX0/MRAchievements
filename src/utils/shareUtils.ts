@@ -4,7 +4,6 @@ import pako from 'pako';
 
 
 
-
 // _________________________________________________________________________________
 
 export function compressAndEncodeForUrl(jsonData: object): string {
@@ -61,7 +60,6 @@ export function compressAndEncodeForUrl(jsonData: object): string {
       // Convert Uint8Array to string
       const jsonString = new TextDecoder().decode(decompressedData);
       
-      // Parse JSON
       return jsonString;
     } catch (error) {
       console.error('Failed to decode and decompress data:', error);
@@ -143,10 +141,6 @@ export function encodeProgress(categories: Category[]): string {
       .map(ach => ach.id)
   ));
 
-  console.log("Cloud1", compressAndEncodeForUrl(completedIds).length)
-  console.log("Cloud Dec", (decodeAndDecompress(compressAndEncodeForUrl(completedIds))))
-
-
 
   return compressAndEncodeForUrl(completedIds);
 }
@@ -154,7 +148,6 @@ export function encodeProgress(categories: Category[]): string {
 // Parse the compressed string back to completion state
 export function decodeProgress(encoded: string): string[] {
   try {
-    console.log("decodP",decodeAndDecompress(encoded))
     return decompressIds(JSON.parse(decodeAndDecompress(encoded)));
   } catch (error) {
     console.error('Error decoding progress:', error);
@@ -175,7 +168,6 @@ export function generateShareableUrl(categories: Category[]): string {
       url.searchParams.delete(key);
     }
   }
-  console.log(url.toString())
   return url.toString();
 }
 
