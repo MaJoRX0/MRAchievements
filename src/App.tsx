@@ -3,7 +3,9 @@ import { CategoryList } from './components/CategoryList';
 import { AchievementList } from './components/AchievementList';
 import { AppState, SortOption } from './types';
 import { initialCategories } from './data';
-import { Download, Upload, CheckSquare, Square, Menu, X, Eye, EyeOff, MoveDown, ChevronDown, Settings, Search, Filter } from 'lucide-react';
+import { generateShareableUrl, hasSharedProgress, getSharedProgress } from './utils/shareUtils';
+import { Check, Share2, Download, Upload, CheckSquare, Square, Menu, X, Eye, EyeOff, MoveDown, ChevronDown, Settings, Search, Filter } from 'lucide-react';
+import { PopConfirm } from './components/PopConfirm';
 
 import Icon from "./icons/default.webp";
 
@@ -12,6 +14,7 @@ function App() {
   const settingsRef = useRef<HTMLDivElement>(null);
   const saved = localStorage.getItem('completedAchievements');
   const completedIds: Record<string, string[]> = saved ? JSON.parse(saved) : {};
+  let isSharedView = hasSharedProgress();
 
   // Load states from localStorage
   const savedHideCompleted = localStorage.getItem('hideCompleted');
@@ -40,6 +43,8 @@ function App() {
   const [sortCompleted, setSortCompleted] = useState(initialSortCompleted);
   const [sortOption, setSortOption] = useState<SortOption>(savedSortOption as SortOption || 'type');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>(savedSortDirection as 'asc' | 'desc' || 'asc');
+  const [copied, setCopied] = useState(false);
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
   // New filter states
   const [selectedHero, setSelectedHero] = useState<string>('');
@@ -81,6 +86,9 @@ function App() {
 
   const { heroes, partners, targets } = getUniqueValues();
 
+
+
+
   useEffect(() => {
     localStorage.setItem('hideCompleted', JSON.stringify(hideCompleted));
   }, [hideCompleted]);
@@ -108,7 +116,7 @@ function App() {
       return acc;
     }, {} as Record<string, string[]>);
 
-    localStorage.setItem('completedAchievements', JSON.stringify(completedAchievements));
+    !isSharedView ? localStorage.setItem('completedAchievements', JSON.stringify(completedAchievements)) : null;
   }, [state.categories]);
 
   const handleSelectCategory = (categoryId: string) => {
@@ -144,6 +152,56 @@ function App() {
       )
     }));
   };
+
+  useEffect(() => {
+    if (hasSharedProgress()) {
+      const completedIds = getSharedProgress();
+      if (completedIds) {
+        setState(prev => ({
+          ...prev,
+          categories: prev.categories.map(category => ({
+            ...category,
+            achievements: category.achievements.map(achievement => ({
+              ...achievement,
+              completed: completedIds.includes(achievement.id),
+            })),
+          })),
+        }));
+      }
+    }
+  }, []);
+
+  const handleShare = () => {
+    const url = generateShareableUrl(state.categories);
+    try { navigator.clipboard.writeText(url) } catch { copyTextToClipboard(url) }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleImportConfirm = () => {
+    const completedAchievements = state.categories.reduce((acc, category) => {
+      const completedIds = category.achievements
+        .filter(ach => ach.completed)
+        .map(ach => ach.id);
+      if (completedIds.length > 0) {
+        acc[category.id] = completedIds;
+      }
+      return acc;
+    }, {} as Record<string, string[]>);
+    isSharedView = false
+    window.history.replaceState({}, '', window.location.pathname);
+    localStorage.setItem('completedAchievements', JSON.stringify(completedAchievements))
+  };
+
+
+  function copyTextToClipboard(text: string): void {
+    const textArea = document.createElement("textarea");
+    document.body.appendChild(textArea);
+    textArea.value = text;
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
+  }
 
   const handleExport = () => {
     const completedAchievements = state.categories.reduce((acc, category) => {
@@ -207,8 +265,9 @@ function App() {
   ) || [];
 
   const totalAchievements = state.categories.reduce((sum, category) => sum + category.achievements.length, 0);
-  const completedAchievements = state.categories.reduce((sum, category) => sum + category.achievements.filter(ach => ach.completed).length, 0);
-  const progressPercentage = totalAchievements > 0 ? (completedAchievements / totalAchievements) * 100 : 0;
+  const completedAchievementsNo = state.categories.reduce((sum, category) => sum + category.achievements.filter(ach => ach.completed).length, 0);
+  const progressPercentage = totalAchievements > 0 ? (completedAchievementsNo / totalAchievements) * 100 : 0;
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
@@ -233,7 +292,22 @@ function App() {
               <span className="text-sm text-gray-300 ml-2">{Math.round(progressPercentage)}%</span>
             </div>
           </div>
-
+          <PopConfirm
+            isOpen={isConfirmOpen}
+            onClose={() => setIsConfirmOpen(false)}
+            onConfirm={handleImportConfirm}
+            title="Import Progress"
+            description="This will override your current progress with the imported data. Are you sure you want to continue?"
+          />
+          {isSharedView && (
+            <button
+              onClick={() => setIsConfirmOpen(true)}
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              <span>Import</span>
+            </button>
+          )}
           <button
             onClick={() => setIsSettingsOpen(!isSettingsOpen)}
             className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors"
@@ -363,25 +437,6 @@ function App() {
                 </div>
               </div>
 
-              {/* Import/Export */}
-              <div className="space-y-2">
-                <h3 className="text-sm font-medium text-gray-300">Data Management</h3>
-                <div className="space-y-2">
-                  <button
-                    onClick={handleExport}
-                    className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700"
-                  >
-                    <span>Export Progress</span>
-                    <Upload className="w-4 h-4" />
-                  </button>
-                  <label className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer">
-                    <span>Import Progress</span>
-                    <Download className="w-4 h-4" />
-                    <input type="file" accept=".json" onChange={handleImport} className="hidden" />
-                  </label>
-                </div>
-              </div>
-
               {/* Visibility */}
               <div className="space-y-2">
                 <h3 className="text-sm font-medium text-gray-300">Visibility</h3>
@@ -408,7 +463,7 @@ function App() {
 
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-300">Sort by</label>
-                    {['type', 'name', 'points'].map((option) => (
+                    {['type', 'name'].map((option) => (
                       <button
                         key={option}
                         onClick={() => {
@@ -419,9 +474,8 @@ function App() {
                             setSortDirection('asc');
                           }
                         }}
-                        className={`w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700 ${
-                          sortOption === option ? 'text-purple-400' : ''
-                        }`}
+                        className={`w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700 ${sortOption === option ? 'text-purple-400' : ''
+                          }`}
                       >
                         <span>{option.charAt(0).toUpperCase() + option.slice(1)}</span>
                         {sortOption === option && (
@@ -430,6 +484,51 @@ function App() {
                       </button>
                     ))}
                   </div>
+                </div>
+              </div>
+
+              {/* Import/Export */}
+              <div className="space-y-2">
+                <h3 className="text-sm font-medium text-gray-300">Data Management</h3>
+                <div className="space-y-2">
+
+                  {/* URL GEN */}
+                  <div className="space-y-2">
+                    <label className="text-sm text-gray-400">Shareable link</label>
+
+                    {!isSharedView && (
+                      <button
+                        onClick={copied ? undefined : handleShare}
+                        disabled={copied}
+                        className={`w-full flex items-center justify-center gap-2 px-4 py-2 ${copied
+                          ? "bg-green-600/20 border border-green-500/30 cursor-not-allowed"
+                          : "bg-purple-600/20 border border-purple-500/30 hover:bg-purple-600/30 cursor-pointer"
+                          } rounded-lg transition-colors`}
+                      >
+                        {copied
+                          ? <Check className="w-4 h-4" />
+                          : <Share2 className="w-4 h-4" />
+                        }
+                        <span>{copied ? "Link Copied!" : "Share Progress"}</span>
+                      </button>
+                    )}
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-sm text-gray-400">Export and Import json file</label>
+                  </div>
+                  <button
+                    onClick={handleExport}
+                    className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700"
+                  >
+                    <span>Export Progress</span>
+                    <Upload className="w-4 h-4" />
+                  </button>
+                  <label className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer">
+                    <span>Import Progress</span>
+                    <Download className="w-4 h-4" />
+                    <input type="file" accept=".json" onChange={handleImport} className="hidden" />
+                  </label>
                 </div>
               </div>
             </div>
@@ -470,7 +569,11 @@ function App() {
                   </div>
                   <button
                     onClick={() => handleToggleAll(selectedCategory.id, !isAllCompleted)}
-                    className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg hover:bg-purple-600/30 transition-colors whitespace-nowrap"
+                    disabled={isSharedView}
+                    className={`flex items-center justify-center gap-2 px-4 py-2 border rounded-lg whitespace-nowrap transition-colors ${isSharedView
+                      ? 'bg-gray-800/50 border-gray-700/50 cursor-not-allowed opacity-50'
+                      : 'bg-purple-600/20 border-purple-500/30 hover:bg-purple-600/30'
+                      }`}
                   >
                     {isAllCompleted ? <Square className="w-4 h-4" /> : <CheckSquare className="w-4 h-4" />}
                     <span>{isAllCompleted ? "Deselect All" : "Select All"}</span>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Achievement, AchievementType, SortOption } from '../types';
 import { HelpCircle, ExternalLink } from 'lucide-react';
+import { hasSharedProgress } from '../utils/shareUtils';
+
 
 interface AchievementListProps {
   achievements: Achievement[];
@@ -171,6 +173,7 @@ export const AchievementList: React.FC<AchievementListProps> = ({
 }) => {
   const [activeHint, setActiveHint] = useState<string | null>(null);
   const hintRef = useRef<HTMLDivElement>(null);
+  const isSharedView = hasSharedProgress();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -209,8 +212,10 @@ export const AchievementList: React.FC<AchievementListProps> = ({
       {sortedAchievements.map((achievement) => (
         <div
           key={achievement.id}
-          onClick={() => onToggleAchievement(achievement.id)}
-          className={`relative p-4 rounded-lg cursor-pointer transition-all duration-300 hover:transform hover:scale-[1.02] overflow-hidden ${
+          onClick={() => !isSharedView && onToggleAchievement(achievement.id)}
+          className={`relative p-4 rounded-lg ${
+            !isSharedView ? 'cursor-pointer hover:transform hover:scale-[1.02]' : 'cursor-default'
+          } transition-all duration-300 overflow-hidden ${
             achievement.completed ? 'bg-gray-800/50 opacity-75' : 'bg-gray-800/80'
           }`}
         >
