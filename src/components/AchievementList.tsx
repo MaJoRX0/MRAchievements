@@ -3,7 +3,6 @@ import { Achievement, AchievementType, SortOption } from '../types';
 import { HelpCircle, ExternalLink } from 'lucide-react';
 import { hasSharedProgress } from '../utils/shareUtils';
 
-
 interface AchievementListProps {
   achievements: Achievement[];
   onToggleAchievement: (id: string) => void;
@@ -56,11 +55,16 @@ const TypeIcon: React.FC<{ type: AchievementType; categoryId: string }> = ({ typ
   return imageSrc ? <img src={imageSrc} alt={`${type}-${categoryId}`} className="w-13 h-13" /> : null;
 };
 
-
 const HintContent: React.FC<{ content: string }> = ({ content }) => {
   // Regular expression to match URLs
   const urlRegex = /(https?:\/\/[^\s]+)/g;
   const parts = content.split(urlRegex);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <>
@@ -70,10 +74,8 @@ const HintContent: React.FC<{ content: string }> = ({ content }) => {
             <a
               key={index}
               href={part}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-purple-400 hover:text-purple-300 transition-colors"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => handleLinkClick(e, part)}
             >
               <span className="underline">Link</span>
               <ExternalLink className="w-3 h-3" />
@@ -126,7 +128,6 @@ const HighlightedText: React.FC<{ text: string; achievement: Achievement }> = ({
       });
     }
   }
-
 
   // Sort matches by index
   matches.sort((a, b) => a.index - b.index);
@@ -185,6 +186,7 @@ export const AchievementList: React.FC<AchievementListProps> = ({
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
   const sortedAchievements = [...achievements].sort((a, b) => {
     if (sortCompleted && a.completed !== b.completed) {
       return a.completed ? 1 : -1;
@@ -207,14 +209,21 @@ export const AchievementList: React.FC<AchievementListProps> = ({
     return sortDirection === 'asc' ? comparison : -comparison;
   });
 
+  const handleAchievementClick = (achievementId: string) => {
+    if (!isSharedView && activeHint !== achievementId) {
+      console.log(activeHint)
+      onToggleAchievement(achievementId);
+    }
+  };
+
   return (
     <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {sortedAchievements.map((achievement) => (
         <div
           key={achievement.id}
-          onClick={() => !isSharedView && onToggleAchievement(achievement.id)}
+          onClick={() => handleAchievementClick(achievement.id)}
           className={`relative p-4 rounded-lg ${
-            !isSharedView ? 'cursor-pointer hover:transform hover:scale-[1.02]' : 'cursor-default'
+            !isSharedView && activeHint !== achievement.id ? 'cursor-pointer hover:transform hover:scale-[1.02]' : 'cursor-default'
           } transition-all duration-300 overflow-hidden ${
             achievement.completed ? 'bg-gray-800/50 opacity-75' : 'bg-gray-800/80'
           }`}
@@ -229,7 +238,7 @@ export const AchievementList: React.FC<AchievementListProps> = ({
           <div className="relative z-10">
             <div className="flex items-start gap-3">
               <TypeIcon type={achievement.type} categoryId={achievement.categoryId} />
-              <div className="flex-1 min-w-0"> {/* Add min-w-0 to enable text truncation */}
+              <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-semibold text-white truncate">{achievement.title}</h3>
                   {achievement.hint && (
@@ -238,6 +247,7 @@ export const AchievementList: React.FC<AchievementListProps> = ({
                         onClick={(e) => {
                           e.stopPropagation();
                           setActiveHint(activeHint === achievement.id ? null : achievement.id);
+                          console.log(activeHint)
                         }}
                         className="group flex-shrink-0"
                       >
@@ -249,6 +259,7 @@ export const AchievementList: React.FC<AchievementListProps> = ({
                       {/* Hint Tooltip */}
                       {activeHint === achievement.id && (
                         <div 
+                          ref={hintRef}
                           className="absolute right-0 mt-2 w-64 p-3 bg-gray-900 rounded-lg shadow-xl border border-purple-500/30 z-50 break-words"
                           onClick={(e) => e.stopPropagation()}
                         >
