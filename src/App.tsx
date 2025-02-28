@@ -4,7 +4,7 @@ import { AchievementList } from './components/AchievementList';
 import { AppState, SortOption } from './types';
 import { initialCategories } from './data';
 import { generateShareableUrl, hasSharedProgress, getSharedProgress } from './utils/shareUtils';
-import { Check, Share2, Download, Upload, CheckSquare, Square, Menu, X, Eye, EyeOff, MoveDown, ChevronDown, Settings, Search } from 'lucide-react';
+import { Check, Share2, Download, Upload, CheckSquare, Square, Menu, X, Eye, EyeOff, MoveDown, ChevronDown, Settings, Search, Plus } from 'lucide-react';
 import { PopConfirm } from './components/PopConfirm';
 
 import Icon from "./icons/default.webp";
@@ -193,6 +193,10 @@ function App() {
     localStorage.setItem('completedAchievements', JSON.stringify(completedAchievements))
   };
 
+  const handleCreateOwn = () => {
+    window.history.replaceState({}, '', window.location.pathname);
+    window.location.reload();
+  };
 
   function copyTextToClipboard(text: string): void {
     const textArea = document.createElement("textarea");
@@ -271,6 +275,24 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+      {isSharedView && (
+        <div className="bg-purple-900/50 backdrop-blur-sm border-b border-purple-800">
+          <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+            <p className="text-sm md:text-base text-purple-200">
+              <span className="md:inline">You're viewing someone's shared progress. </span>
+              Want to track your own achievements?
+            </p>
+            <button
+              onClick={handleCreateOwn}
+              className="flex items-center gap-2 px-3 py-1.5 bg-purple-600 hover:bg-purple-700 rounded-lg text-sm font-medium transition-colors"
+            >
+              <Plus className="w-4 h-4" />
+              <span>Create Your Own</span>
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="container mx-auto px-4 py-6 md:p-6">
         {/* Header Section */}
         <div className="flex flex-col gap-2 md:gap-4 mb-4 md:mb-8 md:flex-row md:justify-between md:items-start">
@@ -488,49 +510,46 @@ function App() {
               </div>
 
               {/* Import/Export */}
-              <div className="space-y-2">
-                <h3 className="text-sm font-medium text-gray-300">Data Management</h3>
+              {!isSharedView && (
                 <div className="space-y-2">
-
-                  {/* URL GEN */}
+                  <h3 className="text-sm font-medium text-gray-300">Data Management</h3>
                   <div className="space-y-2">
-                    <label className="text-sm text-gray-400">Shareable link</label>
 
-                    {!isSharedView && (
-                      <button
+                    {/* URL GEN */}
+                    <div className="space-y-2">
+                      <><label className="text-sm text-gray-400">Shareable link</label><button
                         onClick={copied ? undefined : handleShare}
                         disabled={copied}
                         className={`w-full flex items-center justify-center gap-2 px-4 py-2 ${copied
                           ? "bg-green-600/20 border border-green-500/30 cursor-not-allowed"
-                          : "bg-purple-600/20 border border-purple-500/30 hover:bg-purple-600/30 cursor-pointer"
-                          } rounded-lg transition-colors`}
+                          : "bg-purple-600/20 border border-purple-500/30 hover:bg-purple-600/30 cursor-pointer"} rounded-lg transition-colors`}
                       >
                         {copied
                           ? <Check className="w-4 h-4" />
-                          : <Share2 className="w-4 h-4" />
-                        }
+                          : <Share2 className="w-4 h-4" />}
                         <span>{copied ? "Link Copied!" : "Share Progress"}</span>
-                      </button>
-                    )}
-                  </div>
+                      </button></>
+                    </div>
 
-                  <div className="space-y-1">
-                    <label className="text-sm text-gray-400">Export and Import json file</label>
+                      {/* JSON GEN */}
+                    <div className="space-y-1">
+                      <label className="text-sm text-gray-400">Export and Import json file</label>
+                    </div>
+                    <button
+                      onClick={handleExport}
+                      className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700"
+                    >
+                      <span>Export Progress</span>
+                      <Upload className="w-4 h-4" />
+                    </button>
+                    <label className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer">
+                      <span>Import Progress</span>
+                      <Download className="w-4 h-4" />
+                      <input type="file" accept=".json" onChange={handleImport} className="hidden" />
+                    </label>
                   </div>
-                  <button
-                    onClick={handleExport}
-                    className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700"
-                  >
-                    <span>Export Progress</span>
-                    <Upload className="w-4 h-4" />
-                  </button>
-                  <label className="w-full flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer">
-                    <span>Import Progress</span>
-                    <Download className="w-4 h-4" />
-                    <input type="file" accept=".json" onChange={handleImport} className="hidden" />
-                  </label>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
