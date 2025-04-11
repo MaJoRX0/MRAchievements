@@ -225,7 +225,46 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: ""
-      }    
+      },
+      {
+        id: "gal18",
+        title: "Ultimate Mastery",
+        description: "Raise the Proficiency of 1 hero to Lord.",
+        type: "gold",
+        points: 20,
+        completed: false,
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "gal19",
+        title: "Mutant and Proud!",
+        description: "Listen to 1 conversation between Mutants.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "gal20",
+        title: "Helfire Gala",
+        description: "Unlock all Hellfire Gala gallery cards.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
+      }     
       
     ]
   },
@@ -1345,7 +1384,33 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: ""
-      }    
+      },
+      {
+        id: "her75",
+        title: "Schism from Within",
+        description: "As Emma Frost, force mutants to move 10 times with Psionic Seduction.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Emma Frost",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "her76",
+        title: "Our Little Secret",
+        description: "As Emma Frost, partner with Magneto and land 1 KO.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Emma Frost",
+        partner: "",
+        target: "",
+        hint: ""
+      }
     ]
   },
   {
@@ -1924,7 +1989,72 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: "Win as an Attacker in Empire of Eternal Night"
-      }    
+      },
+      {
+        id: "chr45",
+        title: "The Hidden Womb",
+        description: "Gain control of the Cradle in Krakoa.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Win in Krakoa Hellfire Gala: Cradle DOMINATION"
+      },
+      {
+        id: "chr46",
+        title: "Head of the Table",
+        description: "Gain control of the Quiet Council in Krakoa.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Win in Krakoa Hellfire Gala: The Grove DOMINATION"
+      },
+      {
+        id: "chr47",
+        title: "Unwanted Guests",
+        description: "Gain control of the Carousel in Krakoa.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Win in Krakoa Hellfire Gala: Carousel DOMINATION"  
+      },
+      {
+        id: "chr48",
+        title: "A Necessary Sacrafice",
+        description: "Attempt to destroy Cerebro to prevent Ultron from backing up his data in Krakoa.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://youtu.be/y4tT_FOfMIg&t=1196s )"
+      },
+      {
+        id: "chr49",
+        title: "Out of Service",
+        description: "Attempt to stop Ultron from backing up his data to Cerebro in Krakoa.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://youtu.be/y4tT_FOfMIg&t=1248s )"
+      }
     ]
   }
 ];
