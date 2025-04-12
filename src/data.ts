@@ -1388,7 +1388,7 @@ export const initialCategories: Category[] = [
       {
         id: "her75",
         title: "Schism from Within",
-        description: "As Emma Frost, force mutants to move 10 times with Psionic Seduction.",
+        description: "As Emma Frost, force Mutants to move 10 times with Psionic Seduction.",
         type: "silver",
         points: 10,
         completed: false,
