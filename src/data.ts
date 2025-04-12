@@ -1395,7 +1395,7 @@ export const initialCategories: Category[] = [
         categoryId: "heroic-journey",
         hero: "Emma Frost",
         partner: "",
-        target: "",
+        target: "Mutant",
         hint: ""
       },
       {
@@ -1407,7 +1407,7 @@ export const initialCategories: Category[] = [
         completed: false,
         categoryId: "heroic-journey",
         hero: "Emma Frost",
-        partner: "",
+        partner: "Magneto",
         target: "",
         hint: ""
       }
