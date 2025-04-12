@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -r https://github.com/MaJoRX0/MRAchievements.git"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@types/pako": "^2.0.3",

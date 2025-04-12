@@ -6,7 +6,7 @@ export default defineConfig({
   optimizeDeps: {
     include: ['lucide-react']
   },
-  base: "/",
+  base: "/MRAchievements",
   
   build: {
     minify: "esbuild", // Uses esbuild (faster than terser)
