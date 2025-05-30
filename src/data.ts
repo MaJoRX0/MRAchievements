@@ -1410,6 +1410,32 @@ export const initialCategories: Category[] = [
         partner: "Magneto",
         target: "",
         hint: ""
+      },
+      {
+        id: "her77",
+        title: "No More Strings",
+        description: "As Ultron, take down Avengers members 10 times.",
+        type: "silver",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Ultron",
+        partner: "",
+        target: "Avengers",
+        hint: ""
+      },
+      {
+        id: "her78",
+        title: "Invasion Protocol",
+        description: "As Ultron, issue the \u2026Attack here\u2026 ping 3 times.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Ultron",
+        partner: "",
+        target: "",
+        hint: ""
       }
     ]
   },
@@ -2054,6 +2080,58 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: "Watch this ( https://youtu.be/y4tT_FOfMIg&t=1248s )"
+      },
+      {
+        id: "chr50",
+        title: "Whispers in pieces",
+        description: "Shatter 1 robot on the Robot Wailing Wall in Arakko.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://www.youtube.com/watch?v=oHq2IHAy7ls )"
+      },
+      {
+        id: "chr51",
+        title: "Digital Ecosystem",
+        description: "Restore vegetation to the mechanical surface in Arakko.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "As an attacker on Hellfire Gala: Arakko, capture the first two convoy points"
+      },
+      {
+        id: "chr52",
+        title: "Days of Future Past",
+        description: "Erase Ultron\u2019s Existence from the timeline in Arakko.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Win as a Defender in Hellfire Gala: Arakko"
+      },
+      {
+        id: "chr53",
+        title: "Arrako Goes Analog",
+        description: "Purge Ultron\u2019s virus from Arakko.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Win as an Attacker in Hellfire Gala: Arakko"
       }
     ]
   }
