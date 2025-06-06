@@ -1416,7 +1416,7 @@ export const initialCategories: Category[] = [
         title: "No More Strings",
         description: "As Ultron, take down Avengers members 10 times.",
         type: "silver",
-        points: 5,
+        points: 10,
         completed: false,
         categoryId: "heroic-journey",
         hero: "Ultron",
