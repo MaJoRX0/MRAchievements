@@ -254,7 +254,7 @@ export const initialCategories: Category[] = [
       },
       {
         id: "gal20",
-        title: "Helfire Gala",
+        title: "Hellfire Gala",
         description: "Unlock all Hellfire Gala gallery cards.",
         type: "silver",
         points: 10,
