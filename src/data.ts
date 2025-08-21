@@ -1514,6 +1514,32 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: ""
+      },
+      {
+        id: "her81",
+        title: "Old Haunts",
+        description: "As Blade, land a 3-player KO streak in Empire of Eternal Night: Central Park.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Blade",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "her82",
+        title: "Creatures of the Knight",
+        description: "As Blade, partner with Moon Knight to land 1 KO.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Blade",
+        partner: "Moon Knight",
+        target: "",
+        hint: ""
       }
     ]
   },
