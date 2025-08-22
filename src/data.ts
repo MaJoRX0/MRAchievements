@@ -2314,6 +2314,58 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: "Watch this ( https://www.youtube.com/watch?v=ni73hW7LaC0 )"
+      },
+      {
+        id: "chr60",
+        title: "Can\u2019t Make An Omelette...",
+        description: "Destroy 30 Symbiote Eggs in Klyntar: Throne of Knull.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://www.youtube.com/watch?v=OlveLbnqZV4 )"
+      },
+      {
+        id: "chr61",
+        title: "Whispers of Oblivion",
+        description: "Listen to Knull in Klyntar: Throne of Knull.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://www.youtube.com/watch?v=h4FpwTIfVCs )"
+      },
+      {
+        id: "chr62",
+        title: "Kings in Black",
+        description: "Witness the showdown between Venom in Knull in Klyntar: Throne of Knull.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://www.youtube.com/watch?v=RKVaOwRsxy8 )"
+      },
+      {
+        id: "chr63",
+        title: "Darkness and Light",
+        description: "Obliterate Knull in the White Hot Room in Klyntar: Throne of Knull.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://www.youtube.com/watch?v=ttGs69ykfdE )"
       }
     ]
   }
