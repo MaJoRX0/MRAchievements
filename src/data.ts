@@ -316,6 +316,19 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: ""
+      },
+      {
+        id: "gal25",
+        title: "HEART OF THE DRAGON",
+        description: "Unlock all Heart of the Dragon gallery cards.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       }     
       
     ]
@@ -1540,6 +1553,32 @@ export const initialCategories: Category[] = [
         partner: "Moon Knight",
         target: "",
         hint: ""
+      },
+      {
+        id: "her83",
+        title: "Hand of Heven",
+        description: "As Angela, snare 4 enemies with a single use of Heven\u2019s Retribution",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Angela",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "her84",
+        title: "Asgardians of the Galaxy",
+        description: "As Angela, land 1 KO with an assist from Loki.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Angela",
+        partner: "Loki",
+        target: "",
+        hint: ""
       }
     ]
   },
@@ -1563,7 +1602,7 @@ export const initialCategories: Category[] = [
       },
       {
         id: "chr2",
-        title: "VENI VIDI V\u2026?",
+        title: "VENI VIDI V2026?",
         description: "Spray one time toward the Celestial Codex in Klyntar",
         type: "bronze",
         points: 5,
@@ -1576,7 +1615,7 @@ export const initialCategories: Category[] = [
       },
       {
         id: "chr3",
-        title: "We Are Safe\u2026 For Now",
+        title: "We Are Safe2026 For Now",
         description: "Stop Knull\u2019s Essence from going underground in Klyntar",
         type: "bronze",
         points: 5,
