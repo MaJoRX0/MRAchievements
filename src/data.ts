@@ -316,6 +316,19 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: ""
+      },
+      {
+        id: "gal25",
+        title: "HEART OF THE DRAGON",
+        description: "Unlock all Heart of the Dragon gallery cards.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       }     
       
     ]
@@ -1538,6 +1551,32 @@ export const initialCategories: Category[] = [
         categoryId: "heroic-journey",
         hero: "Blade",
         partner: "Moon Knight",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "her83",
+        title: "Hand of Heven",
+        description: "As Angela, snare 4 enemies with a single use of Heven\u2019s Retribution",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Angela",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "her84",
+        title: "Asgardians of the Galaxy",
+        description: "As Angela, land 1 KO with an assist from Loki.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Angela",
+        partner: "Loki",
         target: "",
         hint: ""
       }
