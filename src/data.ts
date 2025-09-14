@@ -1479,7 +1479,7 @@ export const initialCategories: Category[] = [
       {
         id: "her78",
         title: "Invasion Protocol",
-        description: "As Ultron, issue the \u2026Attack here\u2026 ping 3 times.",
+        description: "As Ultron, issue the \u0022Attack here!\u0022 ping 3 times.",
         type: "bronze",
         points: 5,
         completed: false,
