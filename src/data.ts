@@ -2405,6 +2405,58 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: "Watch this ( https://www.youtube.com/watch?v=ttGs69ykfdE )"
+      },
+      {
+        id: "chr64",
+        title: "Prank of Monkey King",
+        description: "Smash 10 Fruit of Immortality at the Jade Pond banquet in K\u2019un-Lun: Heart of Heaven.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://www.youtube.com/watch?v=R6sMJaN9FqE )"
+      },
+      {
+        id: "chr65",
+        title: "Blueprints Supreme",
+        description: "Use 1 emote in front of the Palace of the Dragon King in K\u2019un-Lun: Heart of Heaven.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://www.youtube.com/watch?v=TrpjCbj_dI0 )"
+      },
+      {
+        id: "chr66",
+        title: "Crouching Threat, Hidden Dragon",
+        description: "Stop the awakening of Shou-Lao in K\u2019un-Lun: Heart of Heaven.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://youtu.be/cyIoNvV-Ges?t=1595 )"
+      },
+      {
+        id: "chr67",
+        title: "Leap of Faith",
+        description: "Use The Tablet of Iron Fist to awaken Shou-Lao in K\u2019un-Lun: Heart of Heaven.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://youtu.be/cyIoNvV-Ges?t=1588 )"
       }
     ]
   }
