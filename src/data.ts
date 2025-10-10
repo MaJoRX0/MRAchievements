@@ -1579,6 +1579,32 @@ export const initialCategories: Category[] = [
         partner: "Loki",
         target: "",
         hint: ""
+      },
+      {
+        id: "her85",
+        title: "The Defenders",
+        description: "As Daredevil, partner with Marvel Knights members to land 10 KOs.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Daredevil",
+        partner: "Marvel Knights",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "her86",
+        title: "Devil Meets Dragon",
+        description: "As Daredevil, take down an enemy Iron Fist",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Daredevil",
+        partner: "",
+        target: "Iron Fist",
+        hint: ""
       }
     ]
   },
