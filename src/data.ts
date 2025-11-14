@@ -329,6 +329,45 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: ""
+      },
+      {
+        id: "gal26",
+        title: "LOVE IS A BATTLEFIELD",
+        description: "Unlock all Love is a BattleField gallery cards.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "gal27",
+        title: "Colorful Words",
+        description: "Use text coloring, Emoji, or Mood in chat channel once.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "gal28",
+        title: "Multiversal View",
+        description: "Change Home Backgroun once.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       }     
       
     ]
@@ -1604,6 +1643,32 @@ export const initialCategories: Category[] = [
         hero: "Daredevil",
         partner: "",
         target: "Iron Fist",
+        hint: ""
+      },
+      {
+        id: "her87",
+        title: "Royal Flush",
+        description: "As Gambit, land 3 KOs with a single use of Ragin\u2019 Royal Flush.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Gambit",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "her88",
+        title: "Aces and Arrows",
+        description: "As Gambit, assist Hawkeye in landing 1 KO.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Gambit",
+        partner: "Hawkeye",
+        target: "",
         hint: ""
       }
     ]
