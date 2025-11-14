@@ -36,7 +36,7 @@ export const validHeroes = [
   'Peni Parker', 'Star-Lord', 'Namor', 'Adam Warlock', 
   'Jeff the Land Shark', 'Psylocke', 'Wolverine', 'Invisible Woman', 
   'The Thing', 'Iron Fist', 'Bruce Banner', 'Guardians of the Galaxy', 'Avengers', 'Mutant', 'Fantastic Four', 'X-Men',
-  'Emma Frost', 'Ultron', 'Phoenix', 'Blade', 'Angela', 'Daredevil', 'Marvel Knights'
+  'Emma Frost', 'Ultron', 'Phoenix', 'Blade', 'Angela', 'Daredevil', 'Marvel Knights', 'Gambit'
 ] as const;
 
 type HeroName = (typeof validHeroes)[number]; // Type-safe hero list
