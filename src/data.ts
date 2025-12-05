@@ -2548,6 +2548,45 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: "Watch this ( https://youtu.be/cyIoNvV-Ges?t=1588 )"
+      },
+      {
+        id: "chr68",
+        title: "Stolen Victory",
+        description: "Achieve 1 victory in Grand Garden.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://youtu.be/ntpvP3v4Qo0 )"
+      },
+      {
+        id: "chr69",
+        title: "Lost in the Game",
+        description: "Trigger 1 checkmate in Grand Garden.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://youtu.be/ntpvP3v4Qo0 )"
+      },
+      {
+        id: "chr70",
+        title: "Grand Garden Gator",
+        description: "Use 1 emote in front of Alligator Loki in Grand Garden",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://youtu.be/ntpvP3v4Qo0 )"
       }
     ]
   }
