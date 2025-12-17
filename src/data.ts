@@ -1670,6 +1670,32 @@ export const initialCategories: Category[] = [
         partner: "Hawkeye",
         target: "",
         hint: ""
+      },
+      {
+        id: "her89",
+        title: "At Her Fingertips",
+        description: "As Rogue, obtain 10 different hero abilities with Ability Absorption.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Rogue",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "her90",
+        title: "Southern Charm",
+        description: "As Rogue, land 1 KO with an assist from Gambit.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Rogue",
+        partner: "Gambit",
+        target: "",
+        hint: ""
       }
     ]
   },
