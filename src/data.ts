@@ -368,6 +368,32 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: ""
+      },
+      {
+        id: "gal29",
+        title: "NIGHT AT THE MUSEUM",
+        description: "Unlock all Night at the Museum gallery cards.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "gal30",
+        title: "Perfection",
+        description: "Raise the Proficiency of 1 hero to Champion.",
+        type: "gold",
+        points: 20,
+        completed: false,
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
       }     
       
     ]
@@ -1695,6 +1721,32 @@ export const initialCategories: Category[] = [
         hero: "Rogue",
         partner: "Gambit",
         target: "",
+        hint: ""
+      },
+      {
+        id: "her91",
+        title: "Say \u0022Chimichanga!\u0022",
+        description: "As Deadpool, take pics with 3 KO\u2027d enemies in a single match.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Deadpool",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "her92",
+        title: "Custody Battle",
+        description: "As Deadpool, take down an enemy Emma Frost",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Deadpool",
+        partner: "",
+        target: "Emma Frost",
         hint: ""
       }
     ]
