@@ -2665,6 +2665,58 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: "Watch this ( https://youtu.be/ntpvP3v4Qo0 )"
+      },
+      {
+        id: "chr71",
+        title: "Secret Stash",
+        description: "Discover The Collector\u2019s Chronovium Cabinet and reveal its secret in the Museum of Contemplation.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://www.youtube.com/watch?v=j6xRJC20V2g )"
+      },
+      {
+        id: "chr72",
+        title: "Well, That Got Weird\u2026",
+        description: "Accidentially transform the Bats Mobile in the Museum of Contemplation.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://www.youtube.com/watch?v=XqXnNM57woU )"
+      },
+      {
+        id: "chr73",
+        title: "Field Trip!",
+        description: "Snatch the Bats Mobile from Deadpool in the Museum of Contemplation.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://www.youtube.com/watch?v=sMGbTHN3cw4 )"
+      },
+      {
+        id: "chr74",
+        title: "Getting Censered",
+        description: "Escape using the censer in the Museum of Contemplation.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "chronoversy-saga",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: "Watch this ( https://www.youtube.com/watch?v=sMGbTHN3cw4 )"
       }
     ]
   }
