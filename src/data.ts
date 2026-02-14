@@ -1748,6 +1748,32 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "Emma Frost",
         hint: ""
+      },
+      {
+        id: "her93",
+        title: "Blood Runs Deep",
+        description: "As Elsa Bloodstone, land 3 KOs with a single use of Apex Predator.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Elsa Bloodstone",
+        partner: "",
+        target: "",
+        hint: ""
+      },
+      {
+        id: "her94",
+        title: "Monster Hunters",
+        description: "As Elsa Bloodstone, partner with Blade to land 1 KO.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "Elsa Bloodstone",
+        partner: "Blade",
+        target: "",
+        hint: ""
       }
     ]
   },
