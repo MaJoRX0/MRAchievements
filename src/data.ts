@@ -211,7 +211,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Fantastic Four ( Mister Fantastic, Invisible Woman, The Thing, Human Torch )"
       },
       {
         id: "gal17",
@@ -224,7 +224,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Fantastic Four ( Mister Fantastic, Invisible Woman, The Thing, Human Torch )"
       },
       {
         id: "gal18",
@@ -250,7 +250,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Mutants ( Emma Frost, Magik, Magneto, Namor, Psylocke, Storm, Wolverine )"
       },
       {
         id: "gal20",
@@ -289,7 +289,7 @@ export const initialCategories: Category[] = [
         hero: "",
         partner: "",
         target: "",
-        hint: ""
+        hint: "Guardians of the Galaxy ( Star-Lord, Adam Warlock, Mantis, Groot, Rocket Raccoon )"
       },
       {
         id: "gal23",
@@ -1071,7 +1071,7 @@ export const initialCategories: Category[] = [
         hero: "Storm",
         partner: "X-Men",
         target: "",
-        hint: "X-Men Members (  Storm, Wolverine, Magik and Psylocke  )"
+        hint: "X-Men ( Emma Frost, Gambit, Magik, Magneto, Namor, Phoenix, Psylocke, Rogue, Storm, and Wolverine )"
       },
       {
         id: "her41",
@@ -1123,7 +1123,7 @@ export const initialCategories: Category[] = [
         hero: "Hawkeye",
         partner: "Avengers",
         target: "",
-        hint: ""
+        hint: "Avengers ( Black Panther, Black Widow, Blade, Bruce Banner, Captain America, Doctor Strange, Hawkeye, Iron Man, Namor, Scarlet Witch, Thor, Winter Soldier )"
       },
       {
         id: "her45",
@@ -1149,7 +1149,7 @@ export const initialCategories: Category[] = [
         hero: "Rocket Raccoon",
         partner: "Guardians of the Galaxy",
         target: "",
-        hint: "Guardians of the Galaxy Members (  Starlord, maybe Adam, Mantis, Groot, Rocket  )"
+        hint: "Guardians of the Galaxy ( Star-Lord, Adam Warlock, Mantis, Groot, Rocket Raccoon )"
       },
       {
         id: "her47",
@@ -1318,7 +1318,7 @@ export const initialCategories: Category[] = [
         hero: "Magneto",
         partner: "Mutant",
         target: "",
-        hint: "Mutants (  Namor, Magik, Psylocke, Wolverine, Storm, Magneto  )"
+        hint: "Mutants ( Emma Frost, Magik, Magneto, Namor, Psylocke, Storm, Wolverine )"
       },
       {
         id: "her60",
@@ -1331,7 +1331,7 @@ export const initialCategories: Category[] = [
         hero: "Scarlet Witch",
         partner: "",
         target: "Mutant",
-        hint: "Mutants (  Namor, Magik, Psylocke, Wolverine, Storm, Magneto  )"
+        hint: "Mutants ( Emma Frost, Magik, Magneto, Namor, Psylocke, Storm, Wolverine )"
       },
       {
         id: "her61",
@@ -1383,7 +1383,7 @@ export const initialCategories: Category[] = [
         hero: "Star-Lord",
         partner: "Guardians of the Galaxy",
         target: "",
-        hint: ""
+        hint: "Guardians of the Galaxy ( Star-Lord, Adam Warlock, Mantis, Groot, Rocket Raccoon )"
       },
       {
         id: "her65",
@@ -1409,7 +1409,7 @@ export const initialCategories: Category[] = [
         hero: "Adam Warlock",
         partner: "Guardians of the Galaxy",
         target: "",
-        hint: "Guardians of the Galaxy Members (  Starlord, maybe Adam, Mantis, Groot, Rocket  )"
+        hint: "Guardians of the Galaxy ( Star-Lord, Adam Warlock, Mantis, Groot, Rocket Raccoon )"
       },
       {
         id: "her67",
@@ -1474,7 +1474,7 @@ export const initialCategories: Category[] = [
         hero: "Invisible Woman",
         partner: "Fantastic Four",
         target: "",
-        hint: "Fantastic Four Members (  Mister Fantastic, Invisible Woman, The Thing  )"
+        hint: "Fantastic Four ( Mister Fantastic, Invisible Woman, The Thing, Human Torch )"
       },
       {
         id: "her72",
@@ -1526,7 +1526,7 @@ export const initialCategories: Category[] = [
         hero: "Emma Frost",
         partner: "",
         target: "Mutant",
-        hint: ""
+        hint: "Mutants ( Emma Frost, Magik, Magneto, Namor, Psylocke, Storm, Wolverine )"
       },
       {
         id: "her76",
@@ -1552,7 +1552,7 @@ export const initialCategories: Category[] = [
         hero: "Ultron",
         partner: "",
         target: "Avengers",
-        hint: ""
+        hint: "Avengers ( Black Panther, Black Widow, Blade, Bruce Banner, Captain America, Doctor Strange, Hawkeye, Iron Man, Namor, Scarlet Witch, Thor, Winter Soldier )"
       },
       {
         id: "her78",
@@ -1656,7 +1656,7 @@ export const initialCategories: Category[] = [
         hero: "Daredevil",
         partner: "Marvel Knights",
         target: "",
-        hint: ""
+        hint: "Marvel Knights ( Blade, Cloak & Dagger, Daredevil, Moon Knight, The Punisher )"
       },
       {
         id: "her86",
