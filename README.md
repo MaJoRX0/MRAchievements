@@ -70,6 +70,16 @@ This app was built with the **help of AI**, assisting me in structuring the code
 
 **Made with ❤️ by [MaJoR](https://github.com/MaJoRX0) & AI**  
 
+---
+
+## 🔧 Community Tools
+
+### 🎯 Rivals Achievement Helper
+
+A CLI companion that integrates with MR Achievements Tracker to help players choose heroes and plan Heroic Journey milestones more efficiently.
+
+🔗 https://github.com/GodTierCutie/rivals-achievement-helper
+
 ## License
 
 Code released under this [License](https://github.com/MaJoRX0/MRAchievements/blob/main/LICENSE).
