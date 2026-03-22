@@ -1774,6 +1774,32 @@ export const initialCategories: Category[] = [
         partner: "Blade",
         target: "",
         hint: ""
+      },
+      {
+        id: "her95",
+        title: "Legacy of Tamamo",
+        description: "As White Fox, take down an enemy Psylocke.",
+        type: "bronze",
+        points: 5,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "White Fox",
+        partner: "",
+        target: "Psylocke",
+        hint: ""
+      },
+      {
+        id: "her96",
+        title: "Ally Agents",
+        description: "As White Fox, partner with Agents of Atlas members to land 10 KOs.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "heroic-journey",
+        hero: "White Fox",
+        partner: "Agents of Atlas",
+        target: "",
+        hint: ""
       }
     ]
   },
