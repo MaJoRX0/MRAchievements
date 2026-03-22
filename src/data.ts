@@ -394,7 +394,20 @@ export const initialCategories: Category[] = [
         partner: "",
         target: "",
         hint: ""
-      }     
+      },
+      {
+        id: "gal31",
+        title: "The Hunt is On",
+        description: "RUnlock all The Hunt is On gallery cards.",
+        type: "silver",
+        points: 10,
+        completed: false,
+        categoryId: "galactas-guide",
+        hero: "",
+        partner: "",
+        target: "",
+        hint: ""
+      }          
       
     ]
   },
